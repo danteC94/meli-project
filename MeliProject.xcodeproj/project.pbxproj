@@ -11,6 +11,15 @@
 		FE556B68259CC70400066353 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B67259CC70400066353 /* SceneDelegate.swift */; };
 		FE556B6F259CC70500066353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE556B6E259CC70500066353 /* Assets.xcassets */; };
 		FE556B7D259CC70600066353 /* MeliProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B7C259CC70600066353 /* MeliProjectTests.swift */; };
+		FE556B8B259CCF1900066353 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B89259CCF1900066353 /* MainSplitViewController.swift */; };
+		FE556B8C259CCF1900066353 /* MainSplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE556B8A259CCF1900066353 /* MainSplitViewController.xib */; };
+		FE556B8E259CCF2E00066353 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B8D259CCF2E00066353 /* AppCoordinator.swift */; };
+		FE556B90259CD04800066353 /* ProductListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B8F259CD04800066353 /* ProductListCoordinator.swift */; };
+		FE556B92259CD06400066353 /* ProductDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B91259CD06400066353 /* ProductDetailsCoordinator.swift */; };
+		FE556B95259CD09200066353 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B93259CD09200066353 /* ProductListViewController.swift */; };
+		FE556B96259CD09200066353 /* ProductListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE556B94259CD09200066353 /* ProductListViewController.xib */; };
+		FE556B99259CD0BD00066353 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B97259CD0BD00066353 /* ProductDetailsViewController.swift */; };
+		FE556B9A259CD0BD00066353 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE556B98259CD0BD00066353 /* ProductDetailsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +41,15 @@
 		FE556B78259CC70600066353 /* MeliProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeliProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE556B7C259CC70600066353 /* MeliProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeliProjectTests.swift; sourceTree = "<group>"; };
 		FE556B7E259CC70600066353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE556B89259CCF1900066353 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		FE556B8A259CCF1900066353 /* MainSplitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainSplitViewController.xib; sourceTree = "<group>"; };
+		FE556B8D259CCF2E00066353 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		FE556B8F259CD04800066353 /* ProductListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCoordinator.swift; sourceTree = "<group>"; };
+		FE556B91259CD06400066353 /* ProductDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsCoordinator.swift; sourceTree = "<group>"; };
+		FE556B93259CD09200066353 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		FE556B94259CD09200066353 /* ProductListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListViewController.xib; sourceTree = "<group>"; };
+		FE556B97259CD0BD00066353 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		FE556B98259CD0BD00066353 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +91,8 @@
 		FE556B64259CC70400066353 /* MeliProject */ = {
 			isa = PBXGroup;
 			children = (
+				FE556B88259CCEE400066353 /* Coordinators */,
+				FE556B87259CCED800066353 /* ViewControllers */,
 				FE556B65259CC70400066353 /* AppDelegate.swift */,
 				FE556B67259CC70400066353 /* SceneDelegate.swift */,
 				FE556B6E259CC70500066353 /* Assets.xcassets */,
@@ -88,6 +108,29 @@
 				FE556B7E259CC70600066353 /* Info.plist */,
 			);
 			path = MeliProjectTests;
+			sourceTree = "<group>";
+		};
+		FE556B87259CCED800066353 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FE556B89259CCF1900066353 /* MainSplitViewController.swift */,
+				FE556B8A259CCF1900066353 /* MainSplitViewController.xib */,
+				FE556B93259CD09200066353 /* ProductListViewController.swift */,
+				FE556B94259CD09200066353 /* ProductListViewController.xib */,
+				FE556B97259CD0BD00066353 /* ProductDetailsViewController.swift */,
+				FE556B98259CD0BD00066353 /* ProductDetailsViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FE556B88259CCEE400066353 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				FE556B8D259CCF2E00066353 /* AppCoordinator.swift */,
+				FE556B8F259CD04800066353 /* ProductListCoordinator.swift */,
+				FE556B91259CD06400066353 /* ProductDetailsCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +214,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE556B8C259CCF1900066353 /* MainSplitViewController.xib in Resources */,
+				FE556B96259CD09200066353 /* ProductListViewController.xib in Resources */,
+				FE556B9A259CD0BD00066353 /* ProductDetailsViewController.xib in Resources */,
 				FE556B6F259CC70500066353 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,8 +235,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE556B8E259CCF2E00066353 /* AppCoordinator.swift in Sources */,
+				FE556B92259CD06400066353 /* ProductDetailsCoordinator.swift in Sources */,
+				FE556B95259CD09200066353 /* ProductListViewController.swift in Sources */,
 				FE556B66259CC70400066353 /* AppDelegate.swift in Sources */,
 				FE556B68259CC70400066353 /* SceneDelegate.swift in Sources */,
+				FE556B90259CD04800066353 /* ProductListCoordinator.swift in Sources */,
+				FE556B8B259CCF1900066353 /* MainSplitViewController.swift in Sources */,
+				FE556B99259CD0BD00066353 /* ProductDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
