@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainCoordinatorBase: CoordinatorBase {
+public class MainCoordinatorBase: CoordinatorBase {
     var masterNavVC: UINavigationController
     var detailNavVC: UINavigationController
     var masterRootVC: UIViewController

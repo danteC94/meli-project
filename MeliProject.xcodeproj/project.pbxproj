@@ -25,6 +25,8 @@
 		FE556BA3259D032400066353 /* TestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BA2259D032400066353 /* TestBase.swift */; };
 		FE556BA5259D255B00066353 /* MainCoordinatorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BA4259D255B00066353 /* MainCoordinatorBase.swift */; };
 		FE556BA7259D26F300066353 /* GenericCoordinatorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BA6259D26F300066353 /* GenericCoordinatorBase.swift */; };
+		FE556BA9259D387D00066353 /* CoordinatorBaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BA8259D387D00066353 /* CoordinatorBaseProtocols.swift */; };
+		FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BAB259D42E400066353 /* AppCoordinatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		FE556BA2259D032400066353 /* TestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBase.swift; sourceTree = "<group>"; };
 		FE556BA4259D255B00066353 /* MainCoordinatorBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorBase.swift; sourceTree = "<group>"; };
 		FE556BA6259D26F300066353 /* GenericCoordinatorBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCoordinatorBase.swift; sourceTree = "<group>"; };
+		FE556BA8259D387D00066353 /* CoordinatorBaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorBaseProtocols.swift; sourceTree = "<group>"; };
+		FE556BAB259D42E400066353 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		FE556B7B259CC70600066353 /* MeliProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				FE556BAA259D42CB00066353 /* CoordinatorsTests */,
 				FE556BA1259D030F00066353 /* TestProtocols */,
 				FE556B7C259CC70600066353 /* MeliProjectTests.swift */,
 				FE556B7E259CC70600066353 /* Info.plist */,
@@ -150,6 +155,7 @@
 		FE556B9B259CD2F900066353 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				FE556BA8259D387D00066353 /* CoordinatorBaseProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -170,6 +176,14 @@
 				FE556BA2259D032400066353 /* TestBase.swift */,
 			);
 			path = TestProtocols;
+			sourceTree = "<group>";
+		};
+		FE556BAA259D42CB00066353 /* CoordinatorsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE556BAB259D42E400066353 /* AppCoordinatorTests.swift */,
+			);
+			path = CoordinatorsTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +293,7 @@
 				FE556B92259CD06400066353 /* ProductDetailsCoordinator.swift in Sources */,
 				FE556B95259CD09200066353 /* ProductListViewController.swift in Sources */,
 				FE556BA7259D26F300066353 /* GenericCoordinatorBase.swift in Sources */,
+				FE556BA9259D387D00066353 /* CoordinatorBaseProtocols.swift in Sources */,
 				FE556B66259CC70400066353 /* AppDelegate.swift in Sources */,
 				FE556B68259CC70400066353 /* SceneDelegate.swift in Sources */,
 				FE556B9E259CE4BD00066353 /* CoordinatorBase.swift in Sources */,
@@ -292,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */,
 				FE556B7D259CC70600066353 /* MeliProjectTests.swift in Sources */,
 				FE556BA3259D032400066353 /* TestBase.swift in Sources */,
 				FE556BA0259CE84100066353 /* CoordinatorBaseTests.swift in Sources */,

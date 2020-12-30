@@ -41,3 +41,9 @@ public class CoordinatorBase {
         navVC.popViewController(animated: animated)
     }
 }
+
+extension CoordinatorBase: Equatable {
+    public static func == (lhs: CoordinatorBase, rhs: CoordinatorBase) -> Bool {
+        return (lhs.parentCoordinator == rhs.parentCoordinator && lhs.childCoordinators == rhs.childCoordinators)
+    }
+}

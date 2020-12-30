@@ -6,4 +6,19 @@
 //  Copyright © 2020 dante. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+public class ProductDetailsCoordinator: GenericCoordinatorBase, GenericCoordinator {
+    init(rootVC: UIViewController, navVC: UINavigationController) {
+        super.init(rootViewController: rootVC, navVC: navVC)
+    }
+
+    public func start() {
+        let detailVC = ProductDetailsViewController()
+        self.navVC.pushViewController(detailVC, animated: true)
+    }
+
+    func finish() {
+        popCoordinator(coordinator: self)
+    }
+}
