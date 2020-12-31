@@ -10,7 +10,6 @@
 		FE556B66259CC70400066353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B65259CC70400066353 /* AppDelegate.swift */; };
 		FE556B68259CC70400066353 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B67259CC70400066353 /* SceneDelegate.swift */; };
 		FE556B6F259CC70500066353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE556B6E259CC70500066353 /* Assets.xcassets */; };
-		FE556B7D259CC70600066353 /* MeliProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B7C259CC70600066353 /* MeliProjectTests.swift */; };
 		FE556B8B259CCF1900066353 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B89259CCF1900066353 /* MainSplitViewController.swift */; };
 		FE556B8C259CCF1900066353 /* MainSplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE556B8A259CCF1900066353 /* MainSplitViewController.xib */; };
 		FE556B8E259CCF2E00066353 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556B8D259CCF2E00066353 /* AppCoordinator.swift */; };
@@ -46,7 +45,6 @@
 		FE556B6E259CC70500066353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE556B73259CC70500066353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE556B78259CC70600066353 /* MeliProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeliProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE556B7C259CC70600066353 /* MeliProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeliProjectTests.swift; sourceTree = "<group>"; };
 		FE556B7E259CC70600066353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE556B89259CCF1900066353 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
 		FE556B8A259CCF1900066353 /* MainSplitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainSplitViewController.xib; sourceTree = "<group>"; };
@@ -120,11 +118,10 @@
 		FE556B7B259CC70600066353 /* MeliProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				FE556BAD259D4B4D00066353 /* ClassesTests */,
 				FE556BAA259D42CB00066353 /* CoordinatorsTests */,
 				FE556BA1259D030F00066353 /* TestProtocols */,
-				FE556B7C259CC70600066353 /* MeliProjectTests.swift */,
 				FE556B7E259CC70600066353 /* Info.plist */,
-				FE556B9F259CE84100066353 /* CoordinatorBaseTests.swift */,
 			);
 			path = MeliProjectTests;
 			sourceTree = "<group>";
@@ -184,6 +181,14 @@
 				FE556BAB259D42E400066353 /* AppCoordinatorTests.swift */,
 			);
 			path = CoordinatorsTests;
+			sourceTree = "<group>";
+		};
+		FE556BAD259D4B4D00066353 /* ClassesTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE556B9F259CE84100066353 /* CoordinatorBaseTests.swift */,
+			);
+			path = ClassesTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */,
-				FE556B7D259CC70600066353 /* MeliProjectTests.swift in Sources */,
 				FE556BA3259D032400066353 /* TestBase.swift in Sources */,
 				FE556BA0259CE84100066353 /* CoordinatorBaseTests.swift in Sources */,
 			);
