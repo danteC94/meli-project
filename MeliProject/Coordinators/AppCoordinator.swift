@@ -39,6 +39,7 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator, UISplitViewCo
         self.splitViewController.preferredPrimaryColumnWidthFraction = 1/3
         self.splitViewController.viewControllers = [masterVC, detailVC]
         self.splitViewController.delegate = self
+        self.setUpNetworkSession(locale: Locale.current)
     }
 
     func showWindow(window: UIWindow, with rootViewController: UIViewController) {
@@ -51,6 +52,23 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator, UISplitViewCo
         self.pushMasterCoordinator(coordinator: &masterCoordinator)
         var detailCoordinator: GenericCoordinatorBase = ProductDetailsCoordinator(rootVC: detailRootVC, navVC: detailNavVC)
         self.pushDetailCoordinator(coordinator: &detailCoordinator)
+    }
+
+    func setUpNetworkSession(locale: Locale) {
+        switch locale.regionCode {
+        case "AR":
+            NetworkManager.setUpSession(session: .network, location: .Argentina)
+        case "BR":
+            NetworkManager.setUpSession(session: .network, location: .Brasil)
+        case "CL":
+            NetworkManager.setUpSession(session: .network, location: .Chile)
+        case "MX":
+            NetworkManager.setUpSession(session: .network, location: .Mexico)
+        case "CO":
+            NetworkManager.setUpSession(session: .network, location: .Colombia)
+        default:
+            NetworkManager.setUpSession(session: .network, location: .Argentina)
+        }
     }
 }
 

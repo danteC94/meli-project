@@ -26,6 +26,19 @@
 		FE556BA7259D26F300066353 /* GenericCoordinatorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BA6259D26F300066353 /* GenericCoordinatorBase.swift */; };
 		FE556BA9259D387D00066353 /* CoordinatorBaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BA8259D387D00066353 /* CoordinatorBaseProtocols.swift */; };
 		FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BAB259D42E400066353 /* AppCoordinatorTests.swift */; };
+		FE99EC7E259D60BE00AEA5AB /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC7D259D60BE00AEA5AB /* URLManager.swift */; };
+		FE99EC80259D65B400AEA5AB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */; };
+		FE99EC82259D885100AEA5AB /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC81259D885100AEA5AB /* TaskManager.swift */; };
+		FE99EC85259D8B5E00AEA5AB /* SearchOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC84259D8B5E00AEA5AB /* SearchOperations.swift */; };
+		FE99EC88259D97D600AEA5AB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC87259D97D600AEA5AB /* Item.swift */; };
+		FE99EC8A259D985300AEA5AB /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC89259D985300AEA5AB /* JsonDecoder.swift */; };
+		FE99EC8D259D99C500AEA5AB /* ItemImmutableModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC8C259D99C500AEA5AB /* ItemImmutableModelTests.swift */; };
+		FE99EC92259D9C0200AEA5AB /* mock_item.json in Resources */ = {isa = PBXBuildFile; fileRef = FE99EC91259D9C0200AEA5AB /* mock_item.json */; };
+		FE99EC94259E53EE00AEA5AB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC93259E53EE00AEA5AB /* Items.swift */; };
+		FE99EC97259E607600AEA5AB /* HTTPUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC96259E607600AEA5AB /* HTTPUtils.swift */; };
+		FE99EC99259E611D00AEA5AB /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC98259E611D00AEA5AB /* Listings.swift */; };
+		FE99EC9D259F6AF600AEA5AB /* NetworkManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */; };
+		FE99EC9F259FCF5100AEA5AB /* PaginatedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC9E259FCF5100AEA5AB /* PaginatedOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +75,19 @@
 		FE556BA6259D26F300066353 /* GenericCoordinatorBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCoordinatorBase.swift; sourceTree = "<group>"; };
 		FE556BA8259D387D00066353 /* CoordinatorBaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorBaseProtocols.swift; sourceTree = "<group>"; };
 		FE556BAB259D42E400066353 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		FE99EC7D259D60BE00AEA5AB /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FE99EC81259D885100AEA5AB /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		FE99EC84259D8B5E00AEA5AB /* SearchOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOperations.swift; sourceTree = "<group>"; };
+		FE99EC87259D97D600AEA5AB /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		FE99EC89259D985300AEA5AB /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
+		FE99EC8C259D99C500AEA5AB /* ItemImmutableModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImmutableModelTests.swift; sourceTree = "<group>"; };
+		FE99EC91259D9C0200AEA5AB /* mock_item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_item.json; sourceTree = "<group>"; };
+		FE99EC93259E53EE00AEA5AB /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		FE99EC96259E607600AEA5AB /* HTTPUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPUtils.swift; sourceTree = "<group>"; };
+		FE99EC98259E611D00AEA5AB /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
+		FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Search.swift"; sourceTree = "<group>"; };
+		FE99EC9E259FCF5100AEA5AB /* PaginatedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				FE556B64259CC70400066353 /* MeliProject */,
+				FE99EC7C259D5C5300AEA5AB /* Network */,
 				FE556B7B259CC70600066353 /* MeliProjectTests */,
 				FE556B63259CC70400066353 /* Products */,
 			);
@@ -103,6 +130,7 @@
 		FE556B64259CC70400066353 /* MeliProject */ = {
 			isa = PBXGroup;
 			children = (
+				FE99EC86259D8E0D00AEA5AB /* ImmutableModels */,
 				FE556B9C259CD30500066353 /* Classes */,
 				FE556B9B259CD2F900066353 /* Protocols */,
 				FE556B88259CCEE400066353 /* Coordinators */,
@@ -118,9 +146,11 @@
 		FE556B7B259CC70600066353 /* MeliProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				FE99EC8B259D999000AEA5AB /* ImmutableModelsTests */,
 				FE556BAD259D4B4D00066353 /* ClassesTests */,
 				FE556BAA259D42CB00066353 /* CoordinatorsTests */,
 				FE556BA1259D030F00066353 /* TestProtocols */,
+				FE99EC8E259D9B7D00AEA5AB /* NetworkMockResponses */,
 				FE556B7E259CC70600066353 /* Info.plist */,
 			);
 			path = MeliProjectTests;
@@ -163,6 +193,7 @@
 				FE556B9D259CE4BD00066353 /* CoordinatorBase.swift */,
 				FE556BA4259D255B00066353 /* MainCoordinatorBase.swift */,
 				FE556BA6259D26F300066353 /* GenericCoordinatorBase.swift */,
+				FE99EC89259D985300AEA5AB /* JsonDecoder.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -189,6 +220,62 @@
 				FE556B9F259CE84100066353 /* CoordinatorBaseTests.swift */,
 			);
 			path = ClassesTests;
+			sourceTree = "<group>";
+		};
+		FE99EC7C259D5C5300AEA5AB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FE99EC95259E602D00AEA5AB /* Utils */,
+				FE99EC83259D8A1D00AEA5AB /* Operations */,
+				FE99EC7D259D60BE00AEA5AB /* URLManager.swift */,
+				FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */,
+				FE99EC81259D885100AEA5AB /* TaskManager.swift */,
+				FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FE99EC83259D8A1D00AEA5AB /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				FE99EC84259D8B5E00AEA5AB /* SearchOperations.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		FE99EC86259D8E0D00AEA5AB /* ImmutableModels */ = {
+			isa = PBXGroup;
+			children = (
+				FE99EC87259D97D600AEA5AB /* Item.swift */,
+				FE99EC93259E53EE00AEA5AB /* Items.swift */,
+			);
+			path = ImmutableModels;
+			sourceTree = "<group>";
+		};
+		FE99EC8B259D999000AEA5AB /* ImmutableModelsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE99EC8C259D99C500AEA5AB /* ItemImmutableModelTests.swift */,
+			);
+			path = ImmutableModelsTests;
+			sourceTree = "<group>";
+		};
+		FE99EC8E259D9B7D00AEA5AB /* NetworkMockResponses */ = {
+			isa = PBXGroup;
+			children = (
+				FE99EC91259D9C0200AEA5AB /* mock_item.json */,
+			);
+			path = NetworkMockResponses;
+			sourceTree = "<group>";
+		};
+		FE99EC95259E602D00AEA5AB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FE99EC96259E607600AEA5AB /* HTTPUtils.swift */,
+				FE99EC98259E611D00AEA5AB /* Listings.swift */,
+				FE99EC9E259FCF5100AEA5AB /* PaginatedOperation.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE99EC92259D9C0200AEA5AB /* mock_item.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,14 +383,25 @@
 			files = (
 				FE556BA5259D255B00066353 /* MainCoordinatorBase.swift in Sources */,
 				FE556B8E259CCF2E00066353 /* AppCoordinator.swift in Sources */,
+				FE99EC8A259D985300AEA5AB /* JsonDecoder.swift in Sources */,
+				FE99EC88259D97D600AEA5AB /* Item.swift in Sources */,
+				FE99EC9D259F6AF600AEA5AB /* NetworkManager+Search.swift in Sources */,
 				FE556B92259CD06400066353 /* ProductDetailsCoordinator.swift in Sources */,
+				FE99EC7E259D60BE00AEA5AB /* URLManager.swift in Sources */,
+				FE99EC9F259FCF5100AEA5AB /* PaginatedOperation.swift in Sources */,
 				FE556B95259CD09200066353 /* ProductListViewController.swift in Sources */,
+				FE99EC99259E611D00AEA5AB /* Listings.swift in Sources */,
 				FE556BA7259D26F300066353 /* GenericCoordinatorBase.swift in Sources */,
 				FE556BA9259D387D00066353 /* CoordinatorBaseProtocols.swift in Sources */,
+				FE99EC94259E53EE00AEA5AB /* Items.swift in Sources */,
 				FE556B66259CC70400066353 /* AppDelegate.swift in Sources */,
 				FE556B68259CC70400066353 /* SceneDelegate.swift in Sources */,
 				FE556B9E259CE4BD00066353 /* CoordinatorBase.swift in Sources */,
+				FE99EC80259D65B400AEA5AB /* NetworkManager.swift in Sources */,
+				FE99EC85259D8B5E00AEA5AB /* SearchOperations.swift in Sources */,
+				FE99EC97259E607600AEA5AB /* HTTPUtils.swift in Sources */,
 				FE556B90259CD04800066353 /* ProductListCoordinator.swift in Sources */,
+				FE99EC82259D885100AEA5AB /* TaskManager.swift in Sources */,
 				FE556B8B259CCF1900066353 /* MainSplitViewController.swift in Sources */,
 				FE556B99259CD0BD00066353 /* ProductDetailsViewController.swift in Sources */,
 			);
@@ -315,6 +414,7 @@
 				FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */,
 				FE556BA3259D032400066353 /* TestBase.swift in Sources */,
 				FE556BA0259CE84100066353 /* CoordinatorBaseTests.swift in Sources */,
+				FE99EC8D259D99C500AEA5AB /* ItemImmutableModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
