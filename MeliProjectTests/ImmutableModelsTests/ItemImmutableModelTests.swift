@@ -32,6 +32,7 @@ class ItemImmutableModelTest: XCTestCase, TestBase {
         XCTAssertEqual(sut.saleTerms!.first!.valueName, "Sin garantía")
         XCTAssertEqual(sut.condition, "used")
         XCTAssertEqual(sut.secureThumbnail, "https://http2.mlstatic.com/D_965833-MLA44193184107_112020-I.jpg")
+        XCTAssertEqual(sut.thumbnail, "http://http2.mlstatic.com/D_965833-MLA44193184107_112020-I.jpg")
         XCTAssertEqual(sut.pictures!.count, 5)
         XCTAssertEqual(sut.pictures!.first?.id, "965833-MLA44193184107_112020")
         XCTAssertEqual(sut.pictures!.first?.secureUrl, "https://http2.mlstatic.com/D_965833-MLA44193184107_112020-O.jpg")

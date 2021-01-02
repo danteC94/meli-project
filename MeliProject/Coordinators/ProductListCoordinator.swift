@@ -9,6 +9,17 @@
 import UIKit
 
 public class ProductListCoordinator: GenericCoordinatorBase, GenericCoordinator {
+    let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void = { imageURL, completion in
+        NetworkManager.requestImage(imageURL: imageURL, success: { retrievedImage in
+            DispatchQueue.main.async {
+                completion(retrievedImage)
+            }
+        }, failure: { error in
+            guard let error = error else { return }
+            print(error)
+        })
+    }
+
     var delegate: MasterDetailRooter?
 
     init(rootVC: UIViewController, navVC: UINavigationController) {
@@ -26,7 +37,7 @@ public class ProductListCoordinator: GenericCoordinatorBase, GenericCoordinator 
                                    success: { items in
                                     print(items)
                                     guard let items = (items as? ItemsImmutableModel)?.results else { return }
-                                    productListViewController?.viewData = ProductListViewController.ViewData(items: items)
+                                    productListViewController?.viewData = ProductListViewController.ViewData(items: items, imageRequestClosure: self.imageRequestClosure)
         },
                                    failure: { error in
                                     print(error)

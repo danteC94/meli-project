@@ -41,7 +41,7 @@ class ProductListViewControllerTests: XCTestCase, TestBase {
     // MARK: Given
 
     func givenNoData() {
-        self.sut.viewData = ProductListViewController.ViewData(items: [])
+        self.sut.viewData = ProductListViewController.ViewData(items: [], imageRequestClosure: {_,_ in })
     }
 
     func givenTwoItems() {
@@ -57,6 +57,7 @@ class ProductListViewControllerTests: XCTestCase, TestBase {
                                        availableQuantity: 1,
                                        saleTerms: nil,
                                        condition: nil,
+                                       thumbnail: nil,
                                        secureThumbnail: nil,
                                        pictures: nil,
                                        acceptsMercadopago: nil,
@@ -64,6 +65,6 @@ class ProductListViewControllerTests: XCTestCase, TestBase {
                                        sellerAddress: nil)
         let item2 = item1
 
-        self.sut.viewData = ProductListViewController.ViewData(items: [item1, item2])
+        self.sut.viewData = ProductListViewController.ViewData(items: [item1, item2], imageRequestClosure: {_,_ in })
     }
 }

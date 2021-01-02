@@ -11,9 +11,10 @@ import UIKit
 class ItemTableViewCell: UITableViewCell {
     struct ViewData {
         let title: String
-        let thumbnailURL: String
+        let thumbnailURL: String?
         let price: Double
         let freeShipping: Bool?
+        let imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     }
 
     var viewData: ViewData? {
@@ -22,6 +23,11 @@ class ItemTableViewCell: UITableViewCell {
             self.price.text = "$ \(viewData?.price)"
             if let freeShipping = viewData?.freeShipping, freeShipping {
                 self.shipping.text = "Envio Gratis!"
+            }
+            guard let thumbnailURL = viewData?.thumbnailURL else { return }
+            viewData?.imageRequestClosure?(thumbnailURL) { [weak self] image in
+                guard let self = self else { return }
+                self.thumbnail.image = image
             }
         }
     }

@@ -21,6 +21,7 @@ public struct ItemImmutableModel: Decodable {
     let availableQuantity: Int?
     let saleTerms: [SaleTerms]?
     let condition: String?
+    let thumbnail: String?
     let secureThumbnail: String?
     let pictures: [Picture]?
     let acceptsMercadopago: Bool?
@@ -40,6 +41,7 @@ public struct ItemImmutableModel: Decodable {
         case availableQuantity = "available_quantity"
         case saleTerms = "sale_terms"
         case condition
+        case thumbnail
         case secureThumbnail = "secure_thumbnail"
         case pictures
         case acceptsMercadopago = "accepts_mercadopago"

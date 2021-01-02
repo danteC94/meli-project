@@ -16,6 +16,7 @@ public class ProductListViewController: UIViewController {
 
     struct ViewData {
         let items: [ItemImmutableModel]
+        let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void
     }
 
     var viewData: ViewData? {
@@ -55,9 +56,10 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
         }
 
         let cellViewData = ItemTableViewCell.ViewData(title: item.title,
-                                                      thumbnailURL: "",
+                                                      thumbnailURL: item.thumbnail,
                                                       price: item.price,
-                                                      freeShipping: item.shipping?.freeShipping)
+                                                      freeShipping: item.shipping?.freeShipping,
+                                                      imageRequestClosure: self.viewData?.imageRequestClosure)
         cell.viewData = cellViewData
         return cell
     }
