@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductListViewController: UIViewController {
+public class ProductListViewController: UIViewController {
 
     struct ViewData {
         let items: [ItemImmutableModel]
@@ -24,7 +24,7 @@ class ProductListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.dataSource = self
@@ -34,11 +34,11 @@ class ProductListViewController: UIViewController {
 }
 
 extension ProductListViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.viewData?.items.count ?? 0
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else {
             assertionFailure("Could not dequeue cell for row \(indexPath.row) in table view")
             return UITableViewCell()

@@ -34,13 +34,16 @@
 		FE99EC8A259D985300AEA5AB /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC89259D985300AEA5AB /* JsonDecoder.swift */; };
 		FE99EC8D259D99C500AEA5AB /* ItemImmutableModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC8C259D99C500AEA5AB /* ItemImmutableModelTests.swift */; };
 		FE99EC92259D9C0200AEA5AB /* mock_item.json in Resources */ = {isa = PBXBuildFile; fileRef = FE99EC91259D9C0200AEA5AB /* mock_item.json */; };
-		FE99EC94259E53EE00AEA5AB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC93259E53EE00AEA5AB /* Items.swift */; };
+		FE99EC94259E53EE00AEA5AB /* ItemsImmutableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC93259E53EE00AEA5AB /* ItemsImmutableModel.swift */; };
 		FE99EC97259E607600AEA5AB /* HTTPUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC96259E607600AEA5AB /* HTTPUtils.swift */; };
 		FE99EC99259E611D00AEA5AB /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC98259E611D00AEA5AB /* Listings.swift */; };
 		FE99EC9D259F6AF600AEA5AB /* NetworkManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */; };
 		FE99EC9F259FCF5100AEA5AB /* PaginatedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC9E259FCF5100AEA5AB /* PaginatedOperation.swift */; };
 		FE99ECAC25A0A8F200AEA5AB /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECAA25A0A8F200AEA5AB /* ItemTableViewCell.swift */; };
 		FE99ECAD25A0A8F200AEA5AB /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECAB25A0A8F200AEA5AB /* ItemTableViewCell.xib */; };
+		FE99ECB025A0BDC900AEA5AB /* mock_items.json in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECAF25A0BDC900AEA5AB /* mock_items.json */; };
+		FE99ECB225A0BE6500AEA5AB /* ItemsImmutableModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB125A0BE6500AEA5AB /* ItemsImmutableModelTests.swift */; };
+		FE99ECB525A0C03000AEA5AB /* ProductListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB425A0C03000AEA5AB /* ProductListViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,13 +88,16 @@
 		FE99EC89259D985300AEA5AB /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
 		FE99EC8C259D99C500AEA5AB /* ItemImmutableModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImmutableModelTests.swift; sourceTree = "<group>"; };
 		FE99EC91259D9C0200AEA5AB /* mock_item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_item.json; sourceTree = "<group>"; };
-		FE99EC93259E53EE00AEA5AB /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		FE99EC93259E53EE00AEA5AB /* ItemsImmutableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsImmutableModel.swift; sourceTree = "<group>"; };
 		FE99EC96259E607600AEA5AB /* HTTPUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPUtils.swift; sourceTree = "<group>"; };
 		FE99EC98259E611D00AEA5AB /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Search.swift"; sourceTree = "<group>"; };
 		FE99EC9E259FCF5100AEA5AB /* PaginatedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedOperation.swift; sourceTree = "<group>"; };
 		FE99ECAA25A0A8F200AEA5AB /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		FE99ECAB25A0A8F200AEA5AB /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		FE99ECAF25A0BDC900AEA5AB /* mock_items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_items.json; sourceTree = "<group>"; };
+		FE99ECB125A0BE6500AEA5AB /* ItemsImmutableModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsImmutableModelTests.swift; sourceTree = "<group>"; };
+		FE99ECB425A0C03000AEA5AB /* ProductListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,7 @@
 		FE556B7B259CC70600066353 /* MeliProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				FE99ECB325A0C01500AEA5AB /* UIViewControllerTests */,
 				FE99EC8B259D999000AEA5AB /* ImmutableModelsTests */,
 				FE556BAD259D4B4D00066353 /* ClassesTests */,
 				FE556BAA259D42CB00066353 /* CoordinatorsTests */,
@@ -252,7 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				FE99EC87259D97D600AEA5AB /* ItemImmutableModel.swift */,
-				FE99EC93259E53EE00AEA5AB /* Items.swift */,
+				FE99EC93259E53EE00AEA5AB /* ItemsImmutableModel.swift */,
 			);
 			path = ImmutableModels;
 			sourceTree = "<group>";
@@ -261,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				FE99EC8C259D99C500AEA5AB /* ItemImmutableModelTests.swift */,
+				FE99ECB125A0BE6500AEA5AB /* ItemsImmutableModelTests.swift */,
 			);
 			path = ImmutableModelsTests;
 			sourceTree = "<group>";
@@ -269,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				FE99EC91259D9C0200AEA5AB /* mock_item.json */,
+				FE99ECAF25A0BDC900AEA5AB /* mock_items.json */,
 			);
 			path = NetworkMockResponses;
 			sourceTree = "<group>";
@@ -290,6 +299,14 @@
 				FE99ECAB25A0A8F200AEA5AB /* ItemTableViewCell.xib */,
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		FE99ECB325A0C01500AEA5AB /* UIViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE99ECB425A0C03000AEA5AB /* ProductListViewControllerTests.swift */,
+			);
+			path = UIViewControllerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE99ECB025A0BDC900AEA5AB /* mock_items.json in Resources */,
 				FE99EC92259D9C0200AEA5AB /* mock_item.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,7 +427,7 @@
 				FE99EC99259E611D00AEA5AB /* Listings.swift in Sources */,
 				FE556BA7259D26F300066353 /* GenericCoordinatorBase.swift in Sources */,
 				FE556BA9259D387D00066353 /* CoordinatorBaseProtocols.swift in Sources */,
-				FE99EC94259E53EE00AEA5AB /* Items.swift in Sources */,
+				FE99EC94259E53EE00AEA5AB /* ItemsImmutableModel.swift in Sources */,
 				FE556B66259CC70400066353 /* AppDelegate.swift in Sources */,
 				FE556B68259CC70400066353 /* SceneDelegate.swift in Sources */,
 				FE556B9E259CE4BD00066353 /* CoordinatorBase.swift in Sources */,
@@ -428,8 +446,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */,
+				FE99ECB225A0BE6500AEA5AB /* ItemsImmutableModelTests.swift in Sources */,
 				FE556BA3259D032400066353 /* TestBase.swift in Sources */,
 				FE556BA0259CE84100066353 /* CoordinatorBaseTests.swift in Sources */,
+				FE99ECB525A0C03000AEA5AB /* ProductListViewControllerTests.swift in Sources */,
 				FE99EC8D259D99C500AEA5AB /* ItemImmutableModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
