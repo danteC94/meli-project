@@ -21,9 +21,9 @@ class URLManager {
 
     static func getBaseUrlString(for endPoint: EndPoint, location: Location) -> String {
         switch endPoint {
-        case .searchProducts:
+        case .searchItems:
             return "https://api.mercadolibre.com/sites/\(location.listingType.rawValue)/search"
-        case .productDetails(let productId):
+        case .itemDetails(let productId):
             return "https://api.mercadolibre.com/items/\(productId)"
         case .image(imageURL: let imageURL):
             return imageURL

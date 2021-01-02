@@ -44,8 +44,8 @@
 		FE99ECB025A0BDC900AEA5AB /* mock_items.json in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECAF25A0BDC900AEA5AB /* mock_items.json */; };
 		FE99ECB225A0BE6500AEA5AB /* ItemsImmutableModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB125A0BE6500AEA5AB /* ItemsImmutableModelTests.swift */; };
 		FE99ECB525A0C03000AEA5AB /* ProductListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB425A0C03000AEA5AB /* ProductListViewControllerTests.swift */; };
-		FE99ECB725A0D08700AEA5AB /* NetworkManager+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB625A0D08700AEA5AB /* NetworkManager+Image.swift */; };
-		FE99ECB925A0D21B00AEA5AB /* ImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB825A0D21B00AEA5AB /* ImageOperation.swift */; };
+		FE99ECBD25A11D0A00AEA5AB /* NetworkManager+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB625A0D08700AEA5AB /* NetworkManager+Image.swift */; };
+		FE99ECBE25A11D0F00AEA5AB /* ImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB825A0D21B00AEA5AB /* ImageOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -421,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE556BA5259D255B00066353 /* MainCoordinatorBase.swift in Sources */,
+				FE99ECBE25A11D0F00AEA5AB /* ImageOperation.swift in Sources */,
 				FE99ECAC25A0A8F200AEA5AB /* ItemTableViewCell.swift in Sources */,
 				FE556B8E259CCF2E00066353 /* AppCoordinator.swift in Sources */,
 				FE99EC8A259D985300AEA5AB /* JsonDecoder.swift in Sources */,
@@ -441,6 +442,7 @@
 				FE99EC85259D8B5E00AEA5AB /* SearchOperations.swift in Sources */,
 				FE99EC97259E607600AEA5AB /* HTTPUtils.swift in Sources */,
 				FE556B90259CD04800066353 /* ProductListCoordinator.swift in Sources */,
+				FE99ECBD25A11D0A00AEA5AB /* NetworkManager+Image.swift in Sources */,
 				FE99EC82259D885100AEA5AB /* TaskManager.swift in Sources */,
 				FE556B8B259CCF1900066353 /* MainSplitViewController.swift in Sources */,
 				FE556B99259CD0BD00066353 /* ProductDetailsViewController.swift in Sources */,
@@ -453,8 +455,6 @@
 			files = (
 				FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */,
 				FE99ECB225A0BE6500AEA5AB /* ItemsImmutableModelTests.swift in Sources */,
-				FE99ECB725A0D08700AEA5AB /* NetworkManager+Image.swift in Sources */,
-				FE99ECB925A0D21B00AEA5AB /* ImageOperation.swift in Sources */,
 				FE556BA3259D032400066353 /* TestBase.swift in Sources */,
 				FE556BA0259CE84100066353 /* CoordinatorBaseTests.swift in Sources */,
 				FE99ECB525A0C03000AEA5AB /* ProductListViewControllerTests.swift in Sources */,

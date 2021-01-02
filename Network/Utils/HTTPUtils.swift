@@ -19,15 +19,15 @@ enum HttpMethodType: String {
 }
 
 enum EndPoint {
-    case searchProducts
-    case productDetails(productId: String)
+    case searchItems
+    case itemDetails(itemId: String)
     case image(imageURL: String)
 
     var allowedHTTPMethod: HttpMethodType {
         switch self {
-        case .searchProducts:
+        case .searchItems:
             return .get
-        case .productDetails:
+        case .itemDetails:
             return .get
         case .image:
             return .get

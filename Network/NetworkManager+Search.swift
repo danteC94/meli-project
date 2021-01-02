@@ -33,7 +33,7 @@ extension NetworkManager {
         queryParams["limit"] = pageSize ?? 20
         queryParams["offset"] = paginated ? (SearchItemsOperation.offset ?? 0) : 0
 
-        guard let urlRequest = URLManager.setUpURL(for: .searchProducts, location: location, queryParams: queryParams) else { return }
+        guard let urlRequest = URLManager.setUpURL(for: .searchItems, location: location, queryParams: queryParams) else { return }
 
         SearchItemsOperation.searchItems(pageSize: pageSize ?? 20,
                                          paginated: paginated,
@@ -45,14 +45,14 @@ extension NetworkManager {
     }
 
     static func getItemDetails<T: Decodable>(decodableType: T.Type,
-                                             productId: String?,
+                                             itemId: String?,
                                              success: @escaping SearchItemsOperation.searchItemsSuccess,
                                              failure: @escaping SearchItemsOperation.searchItemsFailure) {
-        guard let location = Self.location, Self.session != nil, let productId = productId else {
+        guard let location = Self.location, Self.session != nil, let itemId = itemId else {
             assertionFailure("You need to set up the session before making http requests")
             return
         }
-        guard let urlRequest = URLManager.setUpURL(for: .productDetails(productId: productId), location: location, queryParams: nil) else { return }
+        guard let urlRequest = URLManager.setUpURL(for: .itemDetails(itemId: itemId), location: location, queryParams: nil) else { return }
 
         GetItemDetailsOperation.getItems(urlRequest: urlRequest,
                                          decodableType: decodableType,

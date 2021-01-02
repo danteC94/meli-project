@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProductListViewControllerDelegate {
+    func productListVCDidSelectItem(itemId: String)
+}
+
 public class ProductListViewController: UIViewController {
 
     struct ViewData {
@@ -21,6 +25,8 @@ public class ProductListViewController: UIViewController {
             }
         }
     }
+
+    var delegate: ProductListViewControllerDelegate?
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -54,5 +60,13 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
                                                       freeShipping: item.shipping?.freeShipping)
         cell.viewData = cellViewData
         return cell
+    }
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let itemId = self.viewData?.items[indexPath.row].id else {
+            assertionFailure("No Item for row \(indexPath.row) in table view")
+            return
+        }
+        self.delegate?.productListVCDidSelectItem(itemId: itemId)
     }
 }

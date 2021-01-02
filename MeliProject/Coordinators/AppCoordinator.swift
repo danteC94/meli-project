@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol MasterDetailRooter {
+    func displayMasterNavigation()
+    func displayDetailNavigation(itemId: String)
+}
+
 public class AppCoordinator: MainCoordinatorBase, MainCoordinator {
+    var productListCoordinator: ProductListCoordinator? { return self.childCoordinators.first as? ProductListCoordinator}
+    var productDetailsCoordinator: ProductDetailsCoordinator? { return self.childCoordinators.last as? ProductDetailsCoordinator}
     let splitViewController: UISplitViewController
     let window: UIWindow
 
@@ -49,11 +56,12 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator {
     func startMainCoordinators() {
         var masterCoordinator: GenericCoordinatorBase = ProductListCoordinator(rootVC: masterRootVC, navVC: masterNavVC)
         self.pushMasterCoordinator(coordinator: &masterCoordinator)
-        (masterCoordinator as? ProductListCoordinator)?.start()
+        self.productListCoordinator?.delegate = self
+        self.productListCoordinator?.start()
 
         var detailCoordinator: GenericCoordinatorBase = ProductDetailsCoordinator(rootVC: detailRootVC, navVC: detailNavVC)
         self.pushDetailCoordinator(coordinator: &detailCoordinator)
-        (detailCoordinator as? ProductDetailsCoordinator)?.start()
+        self.productDetailsCoordinator?.start()
     }
 
     func setUpNetworkSession(locale: Locale) {
@@ -75,3 +83,21 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator {
 }
 
 extension AppCoordinator: UISplitViewControllerDelegate {}
+
+extension AppCoordinator: MasterDetailRooter {
+    func displayMasterNavigation() {
+
+    }
+
+    func displayDetailNavigation(itemId: String) {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            self.splitViewController.showDetailViewController(self.detailRootVC, sender: nil)
+            (self.childCoordinators.last as? ProductDetailsCoordinator)?.displayItemDetails(itemId: itemId)
+        case .pad:
+            (self.childCoordinators.last as? ProductDetailsCoordinator)?.displayItemDetails(itemId: itemId)
+        default:
+            break
+        }
+    }
+}
