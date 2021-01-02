@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class SearchItemsOperation {
+class SearchItemsOperation {
     public typealias searchItemsSuccess = (Decodable) -> Void
     public typealias searchItemsFailure = (Error?) -> Void
 
@@ -32,7 +32,7 @@ internal class SearchItemsOperation {
     }
 }
 
-internal class GetItemDetailsOperation {
+class GetItemDetailsOperation {
     public typealias getItemDetailsSuccess = (Decodable) -> Void
     public typealias getItemDetailsFailure = (Error?) -> Void
 

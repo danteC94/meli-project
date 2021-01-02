@@ -44,6 +44,8 @@
 		FE99ECB025A0BDC900AEA5AB /* mock_items.json in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECAF25A0BDC900AEA5AB /* mock_items.json */; };
 		FE99ECB225A0BE6500AEA5AB /* ItemsImmutableModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB125A0BE6500AEA5AB /* ItemsImmutableModelTests.swift */; };
 		FE99ECB525A0C03000AEA5AB /* ProductListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB425A0C03000AEA5AB /* ProductListViewControllerTests.swift */; };
+		FE99ECB725A0D08700AEA5AB /* NetworkManager+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB625A0D08700AEA5AB /* NetworkManager+Image.swift */; };
+		FE99ECB925A0D21B00AEA5AB /* ImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB825A0D21B00AEA5AB /* ImageOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		FE99ECAF25A0BDC900AEA5AB /* mock_items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_items.json; sourceTree = "<group>"; };
 		FE99ECB125A0BE6500AEA5AB /* ItemsImmutableModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsImmutableModelTests.swift; sourceTree = "<group>"; };
 		FE99ECB425A0C03000AEA5AB /* ProductListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewControllerTests.swift; sourceTree = "<group>"; };
+		FE99ECB625A0D08700AEA5AB /* NetworkManager+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Image.swift"; sourceTree = "<group>"; };
+		FE99ECB825A0D21B00AEA5AB /* ImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +247,7 @@
 				FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */,
 				FE99EC81259D885100AEA5AB /* TaskManager.swift */,
 				FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */,
+				FE99ECB625A0D08700AEA5AB /* NetworkManager+Image.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				FE99EC84259D8B5E00AEA5AB /* SearchOperations.swift */,
+				FE99ECB825A0D21B00AEA5AB /* ImageOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -447,6 +453,8 @@
 			files = (
 				FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */,
 				FE99ECB225A0BE6500AEA5AB /* ItemsImmutableModelTests.swift in Sources */,
+				FE99ECB725A0D08700AEA5AB /* NetworkManager+Image.swift in Sources */,
+				FE99ECB925A0D21B00AEA5AB /* ImageOperation.swift in Sources */,
 				FE556BA3259D032400066353 /* TestBase.swift in Sources */,
 				FE556BA0259CE84100066353 /* CoordinatorBaseTests.swift in Sources */,
 				FE99ECB525A0C03000AEA5AB /* ProductListViewControllerTests.swift in Sources */,

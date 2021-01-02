@@ -25,6 +25,8 @@ class URLManager {
             return "https://api.mercadolibre.com/sites/\(location.listingType.rawValue)/search"
         case .productDetails(let productId):
             return "https://api.mercadolibre.com/items/\(productId)"
+        case .image(imageURL: let imageURL):
+            return imageURL
         }
     }
 
