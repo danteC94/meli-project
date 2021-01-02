@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class AppCoordinator: MainCoordinatorBase, MainCoordinator, UISplitViewControllerDelegate {
+public class AppCoordinator: MainCoordinatorBase, MainCoordinator {
     let splitViewController: UISplitViewController
     let window: UIWindow
 
@@ -29,17 +29,16 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator, UISplitViewCo
 
     public func start() {
         self.setUpSplitViewController(masterVC: self.masterNavVC, detailVC: self.detailNavVC)
-
         self.showWindow(window: self.window, with: self.splitViewController)
-
+        self.setUpNetworkSession(locale: Locale.current)
         self.startMainCoordinators()
     }
 
     func setUpSplitViewController(masterVC: UINavigationController, detailVC: UINavigationController) {
         self.splitViewController.preferredPrimaryColumnWidthFraction = 1/3
+        self.splitViewController.preferredDisplayMode = .primaryOverlay
         self.splitViewController.viewControllers = [masterVC, detailVC]
         self.splitViewController.delegate = self
-        self.setUpNetworkSession(locale: Locale.current)
     }
 
     func showWindow(window: UIWindow, with rootViewController: UIViewController) {
@@ -50,8 +49,11 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator, UISplitViewCo
     func startMainCoordinators() {
         var masterCoordinator: GenericCoordinatorBase = ProductListCoordinator(rootVC: masterRootVC, navVC: masterNavVC)
         self.pushMasterCoordinator(coordinator: &masterCoordinator)
+        (masterCoordinator as? ProductListCoordinator)?.start()
+
         var detailCoordinator: GenericCoordinatorBase = ProductDetailsCoordinator(rootVC: detailRootVC, navVC: detailNavVC)
         self.pushDetailCoordinator(coordinator: &detailCoordinator)
+        (detailCoordinator as? ProductDetailsCoordinator)?.start()
     }
 
     func setUpNetworkSession(locale: Locale) {
@@ -72,3 +74,4 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator, UISplitViewCo
     }
 }
 
+extension AppCoordinator: UISplitViewControllerDelegate {}

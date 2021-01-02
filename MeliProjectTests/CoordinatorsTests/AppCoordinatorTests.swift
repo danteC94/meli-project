@@ -30,6 +30,7 @@ class AppCoordinatorTests: XCTestCase, TestBase {
         sut.setUpSplitViewController(masterVC: masterVC, detailVC: detailVC)
 
         XCTAssertEqual(sut.splitViewController.preferredPrimaryColumnWidthFraction, 1/3)
+        XCTAssertEqual(sut.splitViewController.preferredDisplayMode, .primaryOverlay)
         XCTAssertEqual(sut.splitViewController.viewControllers.count, 2)
         XCTAssertTrue(sut.splitViewController.viewControllers.contains(masterVC))
         XCTAssertTrue(sut.splitViewController.viewControllers.contains(detailVC))

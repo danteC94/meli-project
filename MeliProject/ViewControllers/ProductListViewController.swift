@@ -10,21 +10,49 @@ import UIKit
 
 class ProductListViewController: UIViewController {
 
+    struct ViewData {
+        let items: [ItemImmutableModel]
+    }
+
+    var viewData: ViewData? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+
+    @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register((UINib(nibName: "ItemTableViewCell", bundle: nil)), forCellReuseIdentifier: "ItemTableViewCell")
+    }
+}
+
+extension ProductListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.viewData?.items.count ?? 0
     }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else {
+            assertionFailure("Could not dequeue cell for row \(indexPath.row) in table view")
+            return UITableViewCell()
+        }
+        guard let item = self.viewData?.items[indexPath.row] else {
+            assertionFailure("No Item for row \(indexPath.row) in table view")
+            return UITableViewCell()
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let cellViewData = ItemTableViewCell.ViewData(title: item.title,
+                                                      thumbnailURL: "",
+                                                      price: item.price,
+                                                      freeShipping: item.shipping?.freeShipping)
+        cell.viewData = cellViewData
+        return cell
     }
-    */
-
 }

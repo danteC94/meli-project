@@ -13,10 +13,7 @@ public class ProductDetailsCoordinator: GenericCoordinatorBase, GenericCoordinat
         super.init(rootViewController: rootVC, navVC: navVC)
     }
 
-    public func start() {
-        let detailVC = ProductDetailsViewController()
-        self.navVC.pushViewController(detailVC, animated: true)
-    }
+    public func start() {}
 
     func finish() {
         popCoordinator(coordinator: self)

@@ -13,12 +13,9 @@ public class ProductListCoordinator: GenericCoordinatorBase, GenericCoordinator 
         super.init(rootViewController: rootVC, navVC: navVC)
     }
 
-    public func start() {
-        let masterVC = ProductListViewController()
-        self.navVC.pushViewController(masterVC, animated: true)
-    }
+    public func start() {}
 
     func finish() {
-        popCoordinator(coordinator: self)
+        self.popCoordinator(coordinator: self)
     }
 }

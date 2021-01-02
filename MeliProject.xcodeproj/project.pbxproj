@@ -30,7 +30,7 @@
 		FE99EC80259D65B400AEA5AB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */; };
 		FE99EC82259D885100AEA5AB /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC81259D885100AEA5AB /* TaskManager.swift */; };
 		FE99EC85259D8B5E00AEA5AB /* SearchOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC84259D8B5E00AEA5AB /* SearchOperations.swift */; };
-		FE99EC88259D97D600AEA5AB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC87259D97D600AEA5AB /* Item.swift */; };
+		FE99EC88259D97D600AEA5AB /* ItemImmutableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC87259D97D600AEA5AB /* ItemImmutableModel.swift */; };
 		FE99EC8A259D985300AEA5AB /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC89259D985300AEA5AB /* JsonDecoder.swift */; };
 		FE99EC8D259D99C500AEA5AB /* ItemImmutableModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC8C259D99C500AEA5AB /* ItemImmutableModelTests.swift */; };
 		FE99EC92259D9C0200AEA5AB /* mock_item.json in Resources */ = {isa = PBXBuildFile; fileRef = FE99EC91259D9C0200AEA5AB /* mock_item.json */; };
@@ -39,6 +39,8 @@
 		FE99EC99259E611D00AEA5AB /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC98259E611D00AEA5AB /* Listings.swift */; };
 		FE99EC9D259F6AF600AEA5AB /* NetworkManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */; };
 		FE99EC9F259FCF5100AEA5AB /* PaginatedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC9E259FCF5100AEA5AB /* PaginatedOperation.swift */; };
+		FE99ECAC25A0A8F200AEA5AB /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECAA25A0A8F200AEA5AB /* ItemTableViewCell.swift */; };
+		FE99ECAD25A0A8F200AEA5AB /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECAB25A0A8F200AEA5AB /* ItemTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +81,7 @@
 		FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FE99EC81259D885100AEA5AB /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		FE99EC84259D8B5E00AEA5AB /* SearchOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOperations.swift; sourceTree = "<group>"; };
-		FE99EC87259D97D600AEA5AB /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		FE99EC87259D97D600AEA5AB /* ItemImmutableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImmutableModel.swift; sourceTree = "<group>"; };
 		FE99EC89259D985300AEA5AB /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
 		FE99EC8C259D99C500AEA5AB /* ItemImmutableModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImmutableModelTests.swift; sourceTree = "<group>"; };
 		FE99EC91259D9C0200AEA5AB /* mock_item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_item.json; sourceTree = "<group>"; };
@@ -88,6 +90,8 @@
 		FE99EC98259E611D00AEA5AB /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Search.swift"; sourceTree = "<group>"; };
 		FE99EC9E259FCF5100AEA5AB /* PaginatedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedOperation.swift; sourceTree = "<group>"; };
+		FE99ECAA25A0A8F200AEA5AB /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		FE99ECAB25A0A8F200AEA5AB /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 		FE556B64259CC70400066353 /* MeliProject */ = {
 			isa = PBXGroup;
 			children = (
+				FE99ECA525A000BC00AEA5AB /* UIComponents */,
 				FE99EC86259D8E0D00AEA5AB /* ImmutableModels */,
 				FE556B9C259CD30500066353 /* Classes */,
 				FE556B9B259CD2F900066353 /* Protocols */,
@@ -246,7 +251,7 @@
 		FE99EC86259D8E0D00AEA5AB /* ImmutableModels */ = {
 			isa = PBXGroup;
 			children = (
-				FE99EC87259D97D600AEA5AB /* Item.swift */,
+				FE99EC87259D97D600AEA5AB /* ItemImmutableModel.swift */,
 				FE99EC93259E53EE00AEA5AB /* Items.swift */,
 			);
 			path = ImmutableModels;
@@ -276,6 +281,15 @@
 				FE99EC9E259FCF5100AEA5AB /* PaginatedOperation.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FE99ECA525A000BC00AEA5AB /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FE99ECAA25A0A8F200AEA5AB /* ItemTableViewCell.swift */,
+				FE99ECAB25A0A8F200AEA5AB /* ItemTableViewCell.xib */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +376,7 @@
 				FE556B8C259CCF1900066353 /* MainSplitViewController.xib in Resources */,
 				FE556B96259CD09200066353 /* ProductListViewController.xib in Resources */,
 				FE556B9A259CD0BD00066353 /* ProductDetailsViewController.xib in Resources */,
+				FE99ECAD25A0A8F200AEA5AB /* ItemTableViewCell.xib in Resources */,
 				FE556B6F259CC70500066353 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,9 +397,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE556BA5259D255B00066353 /* MainCoordinatorBase.swift in Sources */,
+				FE99ECAC25A0A8F200AEA5AB /* ItemTableViewCell.swift in Sources */,
 				FE556B8E259CCF2E00066353 /* AppCoordinator.swift in Sources */,
 				FE99EC8A259D985300AEA5AB /* JsonDecoder.swift in Sources */,
-				FE99EC88259D97D600AEA5AB /* Item.swift in Sources */,
+				FE99EC88259D97D600AEA5AB /* ItemImmutableModel.swift in Sources */,
 				FE99EC9D259F6AF600AEA5AB /* NetworkManager+Search.swift in Sources */,
 				FE556B92259CD06400066353 /* ProductDetailsCoordinator.swift in Sources */,
 				FE99EC7E259D60BE00AEA5AB /* URLManager.swift in Sources */,
