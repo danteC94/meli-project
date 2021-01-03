@@ -46,6 +46,11 @@
 		FE99ECB525A0C03000AEA5AB /* ProductListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB425A0C03000AEA5AB /* ProductListViewControllerTests.swift */; };
 		FE99ECBD25A11D0A00AEA5AB /* NetworkManager+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB625A0D08700AEA5AB /* NetworkManager+Image.swift */; };
 		FE99ECBE25A11D0F00AEA5AB /* ImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECB825A0D21B00AEA5AB /* ImageOperation.swift */; };
+		FE99ECD125A180CE00AEA5AB /* ItemDetailsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECCF25A180CE00AEA5AB /* ItemDetailsHeaderCell.swift */; };
+		FE99ECD225A180CE00AEA5AB /* ItemDetailsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECD025A180CE00AEA5AB /* ItemDetailsHeaderCell.xib */; };
+		FE99ECD525A180E300AEA5AB /* ItemDetailsPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECD325A180E300AEA5AB /* ItemDetailsPriceCell.swift */; };
+		FE99ECD625A180E300AEA5AB /* ItemDetailsPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECD425A180E300AEA5AB /* ItemDetailsPriceCell.xib */; };
+		FE99ECD825A212BF00AEA5AB /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECD725A212BF00AEA5AB /* ProductDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +107,11 @@
 		FE99ECB425A0C03000AEA5AB /* ProductListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewControllerTests.swift; sourceTree = "<group>"; };
 		FE99ECB625A0D08700AEA5AB /* NetworkManager+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Image.swift"; sourceTree = "<group>"; };
 		FE99ECB825A0D21B00AEA5AB /* ImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOperation.swift; sourceTree = "<group>"; };
+		FE99ECCF25A180CE00AEA5AB /* ItemDetailsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsHeaderCell.swift; sourceTree = "<group>"; };
+		FE99ECD025A180CE00AEA5AB /* ItemDetailsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailsHeaderCell.xib; sourceTree = "<group>"; };
+		FE99ECD325A180E300AEA5AB /* ItemDetailsPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsPriceCell.swift; sourceTree = "<group>"; };
+		FE99ECD425A180E300AEA5AB /* ItemDetailsPriceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailsPriceCell.xib; sourceTree = "<group>"; };
+		FE99ECD725A212BF00AEA5AB /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +313,10 @@
 			children = (
 				FE99ECAA25A0A8F200AEA5AB /* ItemTableViewCell.swift */,
 				FE99ECAB25A0A8F200AEA5AB /* ItemTableViewCell.xib */,
+				FE99ECCF25A180CE00AEA5AB /* ItemDetailsHeaderCell.swift */,
+				FE99ECD025A180CE00AEA5AB /* ItemDetailsHeaderCell.xib */,
+				FE99ECD325A180E300AEA5AB /* ItemDetailsPriceCell.swift */,
+				FE99ECD425A180E300AEA5AB /* ItemDetailsPriceCell.xib */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -311,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				FE99ECB425A0C03000AEA5AB /* ProductListViewControllerTests.swift */,
+				FE99ECD725A212BF00AEA5AB /* ProductDetailsViewController.swift */,
 			);
 			path = UIViewControllerTests;
 			sourceTree = "<group>";
@@ -396,8 +411,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE99ECD625A180E300AEA5AB /* ItemDetailsPriceCell.xib in Resources */,
 				FE556B8C259CCF1900066353 /* MainSplitViewController.xib in Resources */,
 				FE556B96259CD09200066353 /* ProductListViewController.xib in Resources */,
+				FE99ECD225A180CE00AEA5AB /* ItemDetailsHeaderCell.xib in Resources */,
 				FE556B9A259CD0BD00066353 /* ProductDetailsViewController.xib in Resources */,
 				FE99ECAD25A0A8F200AEA5AB /* ItemTableViewCell.xib in Resources */,
 				FE556B6F259CC70500066353 /* Assets.xcassets in Resources */,
@@ -429,6 +446,7 @@
 				FE99EC9D259F6AF600AEA5AB /* NetworkManager+Search.swift in Sources */,
 				FE556B92259CD06400066353 /* ProductDetailsCoordinator.swift in Sources */,
 				FE99EC7E259D60BE00AEA5AB /* URLManager.swift in Sources */,
+				FE99ECD525A180E300AEA5AB /* ItemDetailsPriceCell.swift in Sources */,
 				FE99EC9F259FCF5100AEA5AB /* PaginatedOperation.swift in Sources */,
 				FE556B95259CD09200066353 /* ProductListViewController.swift in Sources */,
 				FE99EC99259E611D00AEA5AB /* Listings.swift in Sources */,
@@ -441,6 +459,7 @@
 				FE99EC80259D65B400AEA5AB /* NetworkManager.swift in Sources */,
 				FE99EC85259D8B5E00AEA5AB /* SearchOperations.swift in Sources */,
 				FE99EC97259E607600AEA5AB /* HTTPUtils.swift in Sources */,
+				FE99ECD125A180CE00AEA5AB /* ItemDetailsHeaderCell.swift in Sources */,
 				FE556B90259CD04800066353 /* ProductListCoordinator.swift in Sources */,
 				FE99ECBD25A11D0A00AEA5AB /* NetworkManager+Image.swift in Sources */,
 				FE99EC82259D885100AEA5AB /* TaskManager.swift in Sources */,
@@ -453,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE99ECD825A212BF00AEA5AB /* ProductDetailsViewController.swift in Sources */,
 				FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */,
 				FE99ECB225A0BE6500AEA5AB /* ItemsImmutableModelTests.swift in Sources */,
 				FE556BA3259D032400066353 /* TestBase.swift in Sources */,

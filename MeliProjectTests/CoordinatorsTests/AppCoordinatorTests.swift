@@ -29,8 +29,8 @@ class AppCoordinatorTests: XCTestCase, TestBase {
         let detailVC = UINavigationController()
         sut.setUpSplitViewController(masterVC: masterVC, detailVC: detailVC)
 
-        XCTAssertEqual(sut.splitViewController.preferredPrimaryColumnWidthFraction, 1/3)
-        XCTAssertEqual(sut.splitViewController.preferredDisplayMode, .primaryOverlay)
+        XCTAssertEqual(sut.splitViewController.preferredPrimaryColumnWidthFraction, 1)
+        XCTAssertEqual(sut.splitViewController.preferredDisplayMode, .allVisible)
         XCTAssertEqual(sut.splitViewController.viewControllers.count, 2)
         XCTAssertTrue(sut.splitViewController.viewControllers.contains(masterVC))
         XCTAssertTrue(sut.splitViewController.viewControllers.contains(detailVC))

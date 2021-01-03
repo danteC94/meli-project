@@ -42,8 +42,8 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator {
     }
 
     func setUpSplitViewController(masterVC: UINavigationController, detailVC: UINavigationController) {
-        self.splitViewController.preferredPrimaryColumnWidthFraction = 1/3
-        self.splitViewController.preferredDisplayMode = .primaryOverlay
+        self.splitViewController.preferredPrimaryColumnWidthFraction = 1
+        self.splitViewController.preferredDisplayMode = .allVisible
         self.splitViewController.viewControllers = [masterVC, detailVC]
         self.splitViewController.delegate = self
     }
