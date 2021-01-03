@@ -87,6 +87,12 @@
         }
     ],
     "accepts_mercadopago": true,
+    "installments": {
+        "quantity": 12,
+        "amount": 622.4,
+        "rate": 70.17,
+        "currency_id": "ARS"
+    },
     "non_mercado_pago_payment_methods": [],
     "shipping": {
         "mode": "me2",

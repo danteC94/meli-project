@@ -25,8 +25,10 @@ public struct ItemImmutableModel: Decodable {
     let secureThumbnail: String?
     let pictures: [Picture]?
     let acceptsMercadopago: Bool?
+    let installments: Installments?
     let shipping: Shipping?
     let sellerAddress: SellerAddress?
+    let attributes: [Attribute]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -45,8 +47,10 @@ public struct ItemImmutableModel: Decodable {
         case secureThumbnail = "secure_thumbnail"
         case pictures
         case acceptsMercadopago = "accepts_mercadopago"
+        case installments
         case shipping
         case sellerAddress = "seller_address"
+        case attributes
     }
 }
 
@@ -70,6 +74,11 @@ public struct Picture: Decodable {
         case id
         case secureUrl = "secure_url"
     }
+}
+
+public struct Installments: Decodable {
+    let quantity: Int?
+    let amount: Double?
 }
 
 public struct Shipping: Decodable {
@@ -105,4 +114,16 @@ public struct State: Decodable {
 public struct Country: Decodable {
     let id: String
     let name: String?
+}
+
+public struct Attribute: Decodable {
+    let id: String?
+    let name: String?
+    let valueName: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case valueName = "value_name"
+    }
 }

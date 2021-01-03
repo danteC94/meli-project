@@ -61,8 +61,10 @@ class ProductDetailsViewControllerTests: XCTestCase, TestBase {
                                        secureThumbnail: nil,
                                        pictures: nil,
                                        acceptsMercadopago: nil,
+                                       installments: nil,
                                        shipping: nil,
-                                       sellerAddress: nil)
+                                       sellerAddress: nil,
+                                       attributes: nil)
 
         self.sut.viewData = ProductDetailsViewController.ViewData(item: item, imageRequestClosure: {_,_ in })
     }

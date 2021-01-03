@@ -61,8 +61,10 @@ class ProductListViewControllerTests: XCTestCase, TestBase {
                                        secureThumbnail: nil,
                                        pictures: nil,
                                        acceptsMercadopago: nil,
+                                       installments: nil,
                                        shipping: nil,
-                                       sellerAddress: nil)
+                                       sellerAddress: nil,
+                                       attributes: nil)
         let item2 = item1
 
         self.sut.viewData = ProductListViewController.ViewData(items: [item1, item2], imageRequestClosure: {_,_ in })

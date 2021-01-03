@@ -36,6 +36,9 @@ class ItemImmutableModelTest: XCTestCase, TestBase {
         XCTAssertEqual(sut.pictures!.count, 5)
         XCTAssertEqual(sut.pictures!.first?.id, "965833-MLA44193184107_112020")
         XCTAssertEqual(sut.pictures!.first?.secureUrl, "https://http2.mlstatic.com/D_965833-MLA44193184107_112020-O.jpg")
+        XCTAssertEqual(sut.acceptsMercadopago, true)
+        XCTAssertEqual(sut.installments!.quantity, 12)
+        XCTAssertEqual(sut.installments!.amount, 622.4)
         XCTAssertEqual(sut.shipping!.mode, "me2")
         XCTAssertEqual(sut.shipping!.localPickUp, true)
         XCTAssertEqual(sut.shipping!.freeShipping, false)
@@ -45,5 +48,9 @@ class ItemImmutableModelTest: XCTestCase, TestBase {
         XCTAssertEqual(sut.sellerAddress!.state!.name, "Buenos Aires")
         XCTAssertEqual(sut.sellerAddress!.country!.id, "AR")
         XCTAssertEqual(sut.sellerAddress!.country!.name, "Argentina")
+        XCTAssertEqual(sut.attributes!.count, 63)
+        XCTAssertEqual(sut.attributes!.first!.id, "WITH_SLOW_MOTION_CAMERA_FUNCTION")
+        XCTAssertEqual(sut.attributes!.first!.name, "Con función de cámara lenta")
+        XCTAssertEqual(sut.attributes!.first!.valueName, "Sí")
     }
 }
