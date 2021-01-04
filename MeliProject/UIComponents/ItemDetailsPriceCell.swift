@@ -12,13 +12,14 @@ class ItemDetailsPriceCell: UICollectionViewCell {
     struct ViewData {
         let price: Double
         let installmentsQuantity: Int?
-        let installmentsAmount: Int?
+        let installmentsAmount: Double?
     }
 
     var viewData: ViewData? {
         didSet {
             guard let viewData = viewData else { return }
             self.price.text = "$ \(viewData.price)"
+            self.installments.text = "Cuotas:"
             if let installmentsQuantity = viewData.installmentsQuantity, let installmentsAmount = viewData.installmentsAmount {
                 self.installmentsDescription.text = "\(installmentsQuantity) cuotas de \(installmentsAmount)"
             }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProductListViewControllerDelegate {
-    func productListVCDidSelectItem(itemId: String)
+    func productListVCDidSelectItem(itemId: String, installments: Installments?)
 }
 
 public class ProductListViewController: UIViewController {
@@ -65,10 +65,10 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let itemId = self.viewData?.items[indexPath.row].id else {
+        guard let item = self.viewData?.items[indexPath.row], let itemId = item.id else {
             assertionFailure("No Item for row \(indexPath.row) in table view")
             return
         }
-        self.delegate?.productListVCDidSelectItem(itemId: itemId)
+        self.delegate?.productListVCDidSelectItem(itemId: itemId, installments: item.installments)
     }
 }

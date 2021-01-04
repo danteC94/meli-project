@@ -11,6 +11,7 @@ import UIKit
 public class ProductDetailsViewController: UIViewController {
     struct ViewData {
         let item: ItemImmutableModel
+        let installments: Installments?
         let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void
     }
 
@@ -47,13 +48,14 @@ public class ProductDetailsViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.register(UINib(nibName: "ItemDetailsHeaderCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsHeaderCell")
         self.collectionView.register(UINib(nibName: "ItemDetailsPriceCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsPriceCell")
+        self.collectionView.register(UINib(nibName: "ItemDetailsAttributesCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsAttributesCell")
     }
 }
 
 extension ProductDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.viewData?.item != nil ? 2 : 0
+        return self.viewData?.item != nil ? 3 : 0
     }
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,7 +81,14 @@ extension ProductDetailsViewController: UICollectionViewDataSource, UICollection
                 assertionFailure("Could not dequeue cell for row \(indexPath.row) in collection view")
                 return UICollectionViewCell()
             }
-            cell.viewData = ItemDetailsPriceCell.ViewData(price: item.price, installmentsQuantity: 10, installmentsAmount: 100)
+            cell.viewData = ItemDetailsPriceCell.ViewData(price: item.price, installmentsQuantity: self.viewData?.installments?.quantity, installmentsAmount: self.viewData?.installments?.amount)
+            return cell
+        case 2:
+            guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ItemDetailsAttributesCell", for: indexPath) as? ItemDetailsAttributesCell else {
+                assertionFailure("Could not dequeue cell for row \(indexPath.row) in collection view")
+                return UICollectionViewCell()
+            }
+            cell.viewData = ItemDetailsAttributesCell.ViewData(attributes: item.attributes)
             return cell
         default:
             return UICollectionViewCell()

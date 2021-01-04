@@ -35,7 +35,7 @@ class ProductDetailsViewControllerTests: XCTestCase, TestBase {
     func testLoadProductDetailsViewControllerWithAnItem() {
         givenOneItems()
 
-        XCTAssertEqual(dataSource.numberOfSections?(in: collectionView!), 2)
+        XCTAssertEqual(dataSource.numberOfSections?(in: collectionView!), 3)
     }
 
     // MARK: Given
@@ -66,6 +66,6 @@ class ProductDetailsViewControllerTests: XCTestCase, TestBase {
                                        sellerAddress: nil,
                                        attributes: nil)
 
-        self.sut.viewData = ProductDetailsViewController.ViewData(item: item, imageRequestClosure: {_,_ in })
+        self.sut.viewData = ProductDetailsViewController.ViewData(item: item, installments: nil, imageRequestClosure: {_,_ in })
     }
 }

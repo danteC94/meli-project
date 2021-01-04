@@ -50,7 +50,7 @@ public class ProductListCoordinator: GenericCoordinatorBase, GenericCoordinator 
 }
 
 extension ProductListCoordinator: ProductListViewControllerDelegate {
-    func productListVCDidSelectItem(itemId: String) {
-        self.delegate?.displayDetailNavigation(itemId: itemId)
+    func productListVCDidSelectItem(itemId: String, installments: Installments?) {
+        self.delegate?.displayDetailNavigation(itemId: itemId, installments: installments)
     }
 }

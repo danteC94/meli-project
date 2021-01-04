@@ -10,7 +10,7 @@ import UIKit
 
 protocol MasterDetailRooter {
     func displayMasterNavigation()
-    func displayDetailNavigation(itemId: String)
+    func displayDetailNavigation(itemId: String, installments: Installments?)
 }
 
 public class AppCoordinator: MainCoordinatorBase, MainCoordinator {
@@ -89,13 +89,13 @@ extension AppCoordinator: MasterDetailRooter {
 
     }
 
-    func displayDetailNavigation(itemId: String) {
+    func displayDetailNavigation(itemId: String, installments: Installments?) {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             self.splitViewController.showDetailViewController(self.detailRootVC, sender: nil)
-            (self.childCoordinators.last as? ProductDetailsCoordinator)?.displayItemDetails(itemId: itemId)
+            (self.childCoordinators.last as? ProductDetailsCoordinator)?.displayItemDetails(itemId: itemId, installments: installments)
         case .pad:
-            (self.childCoordinators.last as? ProductDetailsCoordinator)?.displayItemDetails(itemId: itemId)
+            (self.childCoordinators.last as? ProductDetailsCoordinator)?.displayItemDetails(itemId: itemId, installments: installments)
         default:
             break
         }
