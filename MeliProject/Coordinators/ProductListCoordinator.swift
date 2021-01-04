@@ -35,10 +35,11 @@ public class ProductListCoordinator: GenericCoordinatorBase, GenericCoordinator 
         self.popCoordinator(coordinator: self)
     }
 
-    func searchItems(query: String?, category: String?, completion: @escaping ([ItemImmutableModel]) -> Void) {
+    func searchItems(query: String?, category: String?, newSearch: Bool, completion: @escaping ([ItemImmutableModel]) -> Void) {
         NetworkManager.searchItems(decodableType: ItemsImmutableModel.self,
-                                   pageSize: 30,
+                                   pageSize: 20,
                                    paginated: true,
+                                   newSearch: newSearch,
                                    query: query,
                                    category: category,
                                    success: { items in
@@ -54,7 +55,7 @@ public class ProductListCoordinator: GenericCoordinatorBase, GenericCoordinator 
 
 extension ProductListCoordinator: ProductListViewControllerDelegate {
     func productListVCDidSearch(query: String) {
-        self.searchItems(query: query, category: nil, completion: { [weak self] items in
+        self.searchItems(query: query, category: nil, newSearch: true, completion: { [weak self] items in
             guard let self = self , let productListViewController = self.rootViewController as? ProductListViewController else { return }
             productListViewController.viewData = ProductListViewController.ViewData(items: items, imageRequestClosure: self.imageRequestClosure)
         })
@@ -62,5 +63,14 @@ extension ProductListCoordinator: ProductListViewControllerDelegate {
 
     func productListVCDidSelectItem(itemId: String, installments: Installments?) {
         self.delegate?.displayDetailNavigation(itemId: itemId, installments: installments)
+    }
+
+    func productListVCDidReachLastElement(query: String, itemsDisplayed: [ItemImmutableModel]) {
+        self.searchItems(query: query, category: nil, newSearch: false, completion: { [weak self] newItems in
+            guard let self = self , let productListViewController = self.rootViewController as? ProductListViewController else { return }
+            var items = itemsDisplayed
+            items.append(contentsOf: newItems)
+            productListViewController.viewData = ProductListViewController.ViewData(items: items, imageRequestClosure: self.imageRequestClosure)
+        })
     }
 }

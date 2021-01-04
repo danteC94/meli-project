@@ -11,10 +11,12 @@ import UIKit
 protocol ProductListViewControllerDelegate {
     func productListVCDidSelectItem(itemId: String, installments: Installments?)
     func productListVCDidSearch(query: String)
+    func productListVCDidReachLastElement(query: String, itemsDisplayed: [ItemImmutableModel])
 }
 
 public class ProductListViewController: UIViewController {
 
+    var currentQuery: String?
     struct ViewData {
         let items: [ItemImmutableModel]
         let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void
@@ -78,11 +80,20 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
         }
         self.delegate?.productListVCDidSelectItem(itemId: itemId, installments: item.installments)
     }
+
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let items = self.viewData?.items else { return }
+        if indexPath.row + 1 == items.count {
+            guard let currentQuery = self.currentQuery, let itemsDisplayed = self.viewData?.items else { return }
+            delegate?.productListVCDidReachLastElement(query: currentQuery, itemsDisplayed: itemsDisplayed)
+        }
+    }
 }
 
 extension ProductListViewController: UISearchBarDelegate {
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchQuery = searchBar.text else { return }
+        self.currentQuery = searchQuery
         delegate?.productListVCDidSearch(query: searchQuery)
     }
 }

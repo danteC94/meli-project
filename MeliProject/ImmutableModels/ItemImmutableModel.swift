@@ -15,7 +15,7 @@ public struct ItemImmutableModel: Decodable {
     let subtitle: String?
     let sellerId: Int?
     let price: Double
-    let basePrice: Int?
+    let basePrice: Double?
     let currencyId: String
     let initialQuantity: Int?
     let availableQuantity: Int?

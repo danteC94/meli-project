@@ -12,6 +12,7 @@ extension NetworkManager {
     static func searchItems<T: Decodable>(decodableType: T.Type,
                                           pageSize: Int? = nil,
                                           paginated: Bool,
+                                          newSearch: Bool,
                                           query: String?,
                                           category: String?,
                                           success: @escaping SearchItemsOperation.searchItemsSuccess,
@@ -31,7 +32,11 @@ extension NetworkManager {
         }
 
         queryParams["limit"] = pageSize ?? 20
-        queryParams["offset"] = paginated ? (SearchItemsOperation.offset ?? 0) : 0
+        if newSearch {
+            SearchItemsOperation.offset = 0
+        } else {
+            queryParams["offset"] = SearchItemsOperation.offset
+        }
 
         guard let urlRequest = URLManager.setUpURL(for: .searchItems, location: location, queryParams: queryParams) else { return }
 
