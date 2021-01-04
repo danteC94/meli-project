@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProductListViewControllerDelegate {
     func productListVCDidSelectItem(itemId: String, installments: Installments?)
+    func productListVCDidSearch(query: String)
 }
 
 public class ProductListViewController: UIViewController {
@@ -19,6 +20,7 @@ public class ProductListViewController: UIViewController {
         let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void
     }
 
+    let searchController = UISearchController(searchResultsController: nil)
     var viewData: ViewData? {
         didSet {
             DispatchQueue.main.async {
@@ -33,6 +35,11 @@ public class ProductListViewController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchController.searchBar.delegate = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "Buscar productos"
+        self.navigationItem.searchController = searchController
+        self.definesPresentationContext = true
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -70,5 +77,12 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
             return
         }
         self.delegate?.productListVCDidSelectItem(itemId: itemId, installments: item.installments)
+    }
+}
+
+extension ProductListViewController: UISearchBarDelegate {
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchQuery = searchBar.text else { return }
+        delegate?.productListVCDidSearch(query: searchQuery)
     }
 }

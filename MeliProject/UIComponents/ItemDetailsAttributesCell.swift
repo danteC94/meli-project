@@ -33,7 +33,7 @@ class ItemDetailsAttributesCell: UICollectionViewCell {
 extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let attributes = self.viewData?.attributes else { return 0 }
-        return attributes.count > 10 ? 10 : attributes.count
+        return attributes.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

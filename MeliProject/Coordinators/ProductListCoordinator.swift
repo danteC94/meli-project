@@ -29,27 +29,37 @@ public class ProductListCoordinator: GenericCoordinatorBase, GenericCoordinator 
     public func start() {
         let productListViewController = self.rootViewController as? ProductListViewController
         productListViewController?.delegate = self
-        NetworkManager.searchItems(decodableType: ItemsImmutableModel.self,
-                                   pageSize: 20,
-                                   paginated: true,
-                                   query: "Motorola%20G6",
-                                   category: nil,
-                                   success: { items in
-                                    print(items)
-                                    guard let items = (items as? ItemsImmutableModel)?.results else { return }
-                                    productListViewController?.viewData = ProductListViewController.ViewData(items: items, imageRequestClosure: self.imageRequestClosure)
-        },
-                                   failure: { error in
-                                    print(error)
-        })
     }
 
     func finish() {
         self.popCoordinator(coordinator: self)
     }
+
+    func searchItems(query: String?, category: String?, completion: @escaping ([ItemImmutableModel]) -> Void) {
+        NetworkManager.searchItems(decodableType: ItemsImmutableModel.self,
+                                   pageSize: 30,
+                                   paginated: true,
+                                   query: query,
+                                   category: category,
+                                   success: { items in
+                                    print(items)
+                                    guard let items = (items as? ItemsImmutableModel)?.results else { return }
+                                    completion(items)
+        },
+                                   failure: { error in
+                                    print(error)
+        })
+    }
 }
 
 extension ProductListCoordinator: ProductListViewControllerDelegate {
+    func productListVCDidSearch(query: String) {
+        self.searchItems(query: query, category: nil, completion: { [weak self] items in
+            guard let self = self , let productListViewController = self.rootViewController as? ProductListViewController else { return }
+            productListViewController.viewData = ProductListViewController.ViewData(items: items, imageRequestClosure: self.imageRequestClosure)
+        })
+    }
+
     func productListVCDidSelectItem(itemId: String, installments: Installments?) {
         self.delegate?.displayDetailNavigation(itemId: itemId, installments: installments)
     }
