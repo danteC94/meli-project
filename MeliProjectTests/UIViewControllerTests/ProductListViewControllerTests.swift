@@ -50,6 +50,7 @@ class ProductListViewControllerTests: XCTestCase, TestBase {
                                        title: "Celular Motorola G6 Play Dorado",
                                        subtitle: nil,
                                        sellerId: 155913199,
+                                       seller: nil,
                                        price: 27900,
                                        basePrice: 27900,
                                        currencyId: "ARS",

@@ -12,6 +12,7 @@ public class ProductDetailsViewController: UIViewController {
     struct ViewData {
         let item: ItemImmutableModel
         let installments: Installments?
+        let seller: Seller?
         let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void
     }
 
@@ -49,13 +50,14 @@ public class ProductDetailsViewController: UIViewController {
         self.collectionView.register(UINib(nibName: "ItemDetailsHeaderCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsHeaderCell")
         self.collectionView.register(UINib(nibName: "ItemDetailsPriceCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsPriceCell")
         self.collectionView.register(UINib(nibName: "ItemDetailsAttributesCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsAttributesCell")
+        self.collectionView.register(UINib(nibName: "ItemDetailsSellerCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsSellerCell")
     }
 }
 
 extension ProductDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.viewData?.item != nil ? 3 : 0
+        return self.viewData?.item != nil ? 4 : 0
     }
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -89,6 +91,17 @@ extension ProductDetailsViewController: UICollectionViewDataSource, UICollection
                 return UICollectionViewCell()
             }
             cell.viewData = ItemDetailsAttributesCell.ViewData(attributes: item.attributes)
+            return cell
+        case 3:
+            guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ItemDetailsSellerCell", for: indexPath) as? ItemDetailsSellerCell else {
+                assertionFailure("Could not dequeue cell for row \(indexPath.row) in collection view")
+                return UICollectionViewCell()
+            }
+            let sellerTransactions = self.viewData?.seller?.sellerReputation?.transactions
+            cell.viewData = ItemDetailsSellerCell.ViewData(transactions: sellerTransactions?.total,
+                                                           transactionsCompleted: sellerTransactions?.completed,
+                                                           transactionsCanceled: sellerTransactions?.canceled,
+                                                           positiveRating: sellerTransactions?.ratings?.positive)
             return cell
         default:
             return UICollectionViewCell()

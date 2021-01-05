@@ -10,7 +10,7 @@ import Foundation
 
 extension NetworkManager {
     static func searchItems<T: Decodable>(decodableType: T.Type,
-                                          pageSize: Int? = nil,
+                                          pageSize: Int = 20,
                                           paginated: Bool,
                                           newSearch: Bool,
                                           query: String?,
@@ -31,7 +31,7 @@ extension NetworkManager {
             queryParams["category"] = category
         }
 
-        queryParams["limit"] = pageSize ?? 20
+        queryParams["limit"] = pageSize
         if newSearch {
             SearchItemsOperation.offset = 0
         } else {
@@ -40,7 +40,7 @@ extension NetworkManager {
 
         guard let urlRequest = URLManager.setUpURL(for: .searchItems, location: location, queryParams: queryParams) else { return }
 
-        SearchItemsOperation.searchItems(pageSize: pageSize ?? 20,
+        SearchItemsOperation.searchItems(pageSize: pageSize,
                                          paginated: paginated,
                                          urlRequest: urlRequest,
                                          decodableType: decodableType,

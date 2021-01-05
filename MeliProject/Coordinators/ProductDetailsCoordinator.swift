@@ -29,13 +29,13 @@ public class ProductDetailsCoordinator: GenericCoordinatorBase, GenericCoordinat
         
     }
 
-    public func displayItemDetails(itemId: String, installments: Installments?) {
+    public func displayItemDetails(itemId: String, installments: Installments?, seller: Seller?) {
         let productDetailsVC = self.rootViewController as? ProductDetailsViewController
         NetworkManager.getItemDetails(decodableType: ItemImmutableModel.self,
                                       itemId: itemId,
                                       success: { item in
                                         guard let item = item as? ItemImmutableModel else { return }
-                                        productDetailsVC?.viewData = ProductDetailsViewController.ViewData(item: item, installments: installments, imageRequestClosure: self.imageRequestClosure)
+                                        productDetailsVC?.viewData = ProductDetailsViewController.ViewData(item: item, installments: installments, seller: seller, imageRequestClosure: self.imageRequestClosure)
         }, failure: { error in
             print(error)
         })

@@ -35,7 +35,7 @@ class ProductDetailsViewControllerTests: XCTestCase, TestBase {
     func testLoadProductDetailsViewControllerWithAnItem() {
         givenOneItems()
 
-        XCTAssertEqual(dataSource.numberOfSections?(in: collectionView!), 3)
+        XCTAssertEqual(dataSource.numberOfSections?(in: collectionView!), 4)
     }
 
     // MARK: Given
@@ -50,6 +50,7 @@ class ProductDetailsViewControllerTests: XCTestCase, TestBase {
                                        title: "Celular Motorola G6 Play Dorado",
                                        subtitle: nil,
                                        sellerId: 155913199,
+                                       seller: nil,
                                        price: 27900,
                                        basePrice: 27900,
                                        currencyId: "ARS",
@@ -66,6 +67,6 @@ class ProductDetailsViewControllerTests: XCTestCase, TestBase {
                                        sellerAddress: nil,
                                        attributes: nil)
 
-        self.sut.viewData = ProductDetailsViewController.ViewData(item: item, installments: nil, imageRequestClosure: {_,_ in })
+        self.sut.viewData = ProductDetailsViewController.ViewData(item: item, installments: nil, seller: nil, imageRequestClosure: {_,_ in })
     }
 }

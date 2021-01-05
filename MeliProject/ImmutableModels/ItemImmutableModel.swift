@@ -14,6 +14,7 @@ public struct ItemImmutableModel: Decodable {
     let title: String
     let subtitle: String?
     let sellerId: Int?
+    let seller: Seller?
     let price: Double
     let basePrice: Double?
     let currencyId: String
@@ -36,6 +37,7 @@ public struct ItemImmutableModel: Decodable {
         case title
         case subtitle
         case sellerId = "seller_id"
+        case seller
         case price
         case basePrice = "base_price"
         case currencyId = "currency_id"
@@ -126,4 +128,31 @@ public struct Attribute: Decodable {
         case name
         case valueName = "value_name"
     }
+}
+
+public struct Seller: Decodable {
+    let id: Int
+    let sellerReputation: SellerReputation?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case sellerReputation = "seller_reputation"
+    }
+}
+
+public struct SellerReputation: Decodable {
+    let transactions: Transactions?
+}
+
+public struct Transactions: Decodable {
+    let total: Int?
+    let canceled: Int?
+    let ratings: Ratings?
+    let completed: Int?
+}
+
+public struct Ratings: Decodable {
+    let negative: Float?
+    let positive: Float?
+    let neutral: Float?
 }

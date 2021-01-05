@@ -61,8 +61,8 @@ extension ProductListCoordinator: ProductListViewControllerDelegate {
         })
     }
 
-    func productListVCDidSelectItem(itemId: String, installments: Installments?) {
-        self.delegate?.displayDetailNavigation(itemId: itemId, installments: installments)
+    func productListVCDidSelectItem(itemId: String, installments: Installments?, seller: Seller?) {
+        self.delegate?.displayDetailNavigation(itemId: itemId, installments: installments, seller: seller)
     }
 
     func productListVCDidReachLastElement(query: String, itemsDisplayed: [ItemImmutableModel]) {

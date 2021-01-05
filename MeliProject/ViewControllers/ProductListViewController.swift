@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProductListViewControllerDelegate {
-    func productListVCDidSelectItem(itemId: String, installments: Installments?)
+    func productListVCDidSelectItem(itemId: String, installments: Installments?, seller: Seller?)
     func productListVCDidSearch(query: String)
     func productListVCDidReachLastElement(query: String, itemsDisplayed: [ItemImmutableModel])
 }
@@ -78,7 +78,7 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
             assertionFailure("No Item for row \(indexPath.row) in table view")
             return
         }
-        self.delegate?.productListVCDidSelectItem(itemId: itemId, installments: item.installments)
+        self.delegate?.productListVCDidSelectItem(itemId: itemId, installments: item.installments, seller: item.seller)
     }
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

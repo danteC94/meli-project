@@ -20,6 +20,13 @@ class ItemsImmutableModelTest: XCTestCase, TestBase {
 
         XCTAssertEqual(sut.siteId, "MLA")
         XCTAssertEqual(sut.query, "Motorola G6")
+        XCTAssertEqual(sut.results.first!.seller!.id, 60775009)
+        XCTAssertEqual(sut.results.first!.seller!.sellerReputation!.transactions!.total, 4)
+        XCTAssertEqual(sut.results.first!.seller!.sellerReputation!.transactions!.canceled, 1)
+        XCTAssertEqual(sut.results.first!.seller!.sellerReputation!.transactions!.completed, 3)
+        XCTAssertEqual(sut.results.first!.seller!.sellerReputation!.transactions!.ratings?.negative, 0)
+        XCTAssertEqual(sut.results.first!.seller!.sellerReputation!.transactions!.ratings?.positive, 0.81)
+        XCTAssertEqual(sut.results.first!.seller!.sellerReputation!.transactions!.ratings?.neutral, 0.19)
         XCTAssertEqual(sut.paging.total, 588)
         XCTAssertEqual(sut.paging.primaryResults, 1000)
         XCTAssertEqual(sut.paging.offset, 50)

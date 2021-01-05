@@ -55,6 +55,8 @@
 		FE99ECDC25A2213100AEA5AB /* ItemDetailsAttributesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECDA25A2213100AEA5AB /* ItemDetailsAttributesCell.xib */; };
 		FE99ECDF25A2347A00AEA5AB /* AtttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECDD25A2347A00AEA5AB /* AtttributeCell.swift */; };
 		FE99ECE025A2347A00AEA5AB /* AtttributeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECDE25A2347A00AEA5AB /* AtttributeCell.xib */; };
+		FE99ECE325A3983000AEA5AB /* ItemDetailsSellerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99ECE125A3983000AEA5AB /* ItemDetailsSellerCell.swift */; };
+		FE99ECE425A3983000AEA5AB /* ItemDetailsSellerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE99ECE225A3983000AEA5AB /* ItemDetailsSellerCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		FE99ECDA25A2213100AEA5AB /* ItemDetailsAttributesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailsAttributesCell.xib; sourceTree = "<group>"; };
 		FE99ECDD25A2347A00AEA5AB /* AtttributeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtttributeCell.swift; sourceTree = "<group>"; };
 		FE99ECDE25A2347A00AEA5AB /* AtttributeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AtttributeCell.xib; sourceTree = "<group>"; };
+		FE99ECE125A3983000AEA5AB /* ItemDetailsSellerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsSellerCell.swift; sourceTree = "<group>"; };
+		FE99ECE225A3983000AEA5AB /* ItemDetailsSellerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailsSellerCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +333,8 @@
 				FE99ECDA25A2213100AEA5AB /* ItemDetailsAttributesCell.xib */,
 				FE99ECDD25A2347A00AEA5AB /* AtttributeCell.swift */,
 				FE99ECDE25A2347A00AEA5AB /* AtttributeCell.xib */,
+				FE99ECE125A3983000AEA5AB /* ItemDetailsSellerCell.swift */,
+				FE99ECE225A3983000AEA5AB /* ItemDetailsSellerCell.xib */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 			files = (
 				FE99ECD625A180E300AEA5AB /* ItemDetailsPriceCell.xib in Resources */,
 				FE556B8C259CCF1900066353 /* MainSplitViewController.xib in Resources */,
+				FE99ECE425A3983000AEA5AB /* ItemDetailsSellerCell.xib in Resources */,
 				FE99ECDC25A2213100AEA5AB /* ItemDetailsAttributesCell.xib in Resources */,
 				FE556B96259CD09200066353 /* ProductListViewController.xib in Resources */,
 				FE99ECD225A180CE00AEA5AB /* ItemDetailsHeaderCell.xib in Resources */,
@@ -465,6 +472,7 @@
 				FE99EC9F259FCF5100AEA5AB /* PaginatedOperation.swift in Sources */,
 				FE556B95259CD09200066353 /* ProductListViewController.swift in Sources */,
 				FE99EC99259E611D00AEA5AB /* Listings.swift in Sources */,
+				FE99ECE325A3983000AEA5AB /* ItemDetailsSellerCell.swift in Sources */,
 				FE556BA7259D26F300066353 /* GenericCoordinatorBase.swift in Sources */,
 				FE556BA9259D387D00066353 /* CoordinatorBaseProtocols.swift in Sources */,
 				FE99EC94259E53EE00AEA5AB /* ItemsImmutableModel.swift in Sources */,
