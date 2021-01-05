@@ -26,7 +26,9 @@ class ItemDetailsHeaderCell: UICollectionViewCell {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
         return layout
     }()
 
