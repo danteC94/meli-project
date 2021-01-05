@@ -17,18 +17,48 @@ class ItemDetailsHeaderCell: UICollectionViewCell {
 
     var viewData: ViewData? {
         didSet {
-            guard let image = viewData?.images?.first else { return }
-            viewData?.imageRequestClosure?(image) { [weak self] image in
-                guard let self = self else { return }
-                self.image.image = image
-            }
+            self.collectionView.reloadData()
         }
     }
 
-    @IBOutlet weak var image: UIImageView!
+    lazy var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        return layout
+    }()
+
+    @IBOutlet weak var collectionView: UICollectionView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.collectionViewLayout = self.layout
+        self.collectionView.isPagingEnabled = true
+        self.collectionView.showsHorizontalScrollIndicator = false
+    }
+}
+
+extension ItemDetailsHeaderCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.viewData?.images?.count ?? 0
     }
 
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageCell, let image = self.viewData?.images?[indexPath.row] else {
+            assertionFailure("Could not dequeue cell for row \(indexPath.row) in collection view")
+            return UICollectionViewCell()
+        }
+        cell.viewData = ImageCell.ViewData(image: image, imageRequestClosure: self.viewData?.imageRequestClosure)
+        return cell
+    }
+
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let defaultSize = CGSize(width: self.collectionView.frame.size.width, height: self.collectionView.frame.size.height)
+        return defaultSize
+    }
 }

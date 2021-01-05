@@ -32,8 +32,7 @@ class ItemDetailsAttributesCell: UICollectionViewCell {
 
 extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let attributes = self.viewData?.attributes else { return 0 }
-        return attributes.count
+        return self.viewData?.attributes?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,5 +48,4 @@ extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionVie
         let defaultSize = CGSize(width: (contentView.bounds.size.width / 2) - 42, height: 100)
         return defaultSize
     }
-
 }

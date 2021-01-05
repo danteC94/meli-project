@@ -109,7 +109,7 @@ extension ProductDetailsViewController: UICollectionViewDataSource, UICollection
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let defaultSize = CGSize(width: view.bounds.size.width, height: view.bounds.size.height / 6)
+        let defaultSize = CGSize(width: view.bounds.size.width, height: view.bounds.size.height / 2)
         return defaultSize
     }
 }
