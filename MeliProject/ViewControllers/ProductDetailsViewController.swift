@@ -45,6 +45,8 @@ public class ProductDetailsViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Mercado Libre"
+        self.navigationController?.navigationBar.barTintColor = .yellow
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(UINib(nibName: "ItemDetailsHeaderCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsHeaderCell")

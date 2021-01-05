@@ -49,6 +49,8 @@ public class ItemTableViewCell: UITableViewCell {
         self.shipping.textColor = Styles.importantDescriptionColor
         self.condition.font = Styles.bodyFont
         self.condition.textColor = Styles.descriptionColor
+        self.thumbnail.layer.cornerRadius = self.thumbnail.frame.height / 2
+        self.thumbnail.clipsToBounds = true
     }
 
     func setUpComponentData(viewData: ViewData) {

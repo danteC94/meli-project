@@ -15,14 +15,14 @@ protocol ProductListViewControllerDelegate {
 }
 
 public class ProductListViewController: UIViewController {
-
-    var currentQuery: String?
     struct ViewData {
         let items: [ItemImmutableModel]
         let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void
     }
 
     let searchController = UISearchController(searchResultsController: nil)
+    var currentQuery: String?
+    var delegate: ProductListViewControllerDelegate?
     var viewData: ViewData? {
         didSet {
             DispatchQueue.main.async {
@@ -31,18 +31,18 @@ public class ProductListViewController: UIViewController {
         }
     }
 
-    var delegate: ProductListViewControllerDelegate?
-
+    @IBOutlet weak var searchBarContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Mercado Libre"
         self.searchController.searchBar.delegate = self
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchBar.placeholder = "Buscar productos"
         self.navigationItem.searchController = searchController
+        self.navigationController?.navigationBar.barTintColor = .yellow
         self.definesPresentationContext = true
-
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register((UINib(nibName: "ItemTableViewCell", bundle: nil)), forCellReuseIdentifier: "ItemTableViewCell")

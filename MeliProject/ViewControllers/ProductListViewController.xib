@@ -26,8 +26,8 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="x3j-iM-Oiw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1re-JW-mHR"/>
+                <constraint firstItem="x3j-iM-Oiw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4TY-XT-Y0h"/>
                 <constraint firstAttribute="bottom" secondItem="x3j-iM-Oiw" secondAttribute="bottom" id="4c1-Nx-dw7"/>
-                <constraint firstItem="x3j-iM-Oiw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="YUg-gD-AAP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="x3j-iM-Oiw" secondAttribute="trailing" id="s9j-E8-Fpc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

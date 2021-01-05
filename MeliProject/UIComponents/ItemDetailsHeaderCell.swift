@@ -60,7 +60,6 @@ extension ItemDetailsHeaderCell: UICollectionViewDataSource, UICollectionViewDel
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let defaultSize = CGSize(width: self.collectionView.frame.size.width, height: self.collectionView.frame.size.height)
-        return defaultSize
+        return CGSize(width: self.collectionView.frame.size.width, height: self.collectionView.frame.size.height)
     }
 }
