@@ -29,7 +29,6 @@ public class JsonDecoder {
 
     private func getMockedJsonString(resourceBundle: String) throws -> Data? {
         let bundle = Bundle(identifier: resourceBundle)
-//        Bundle(identifier: com.dante.MeliProjectTests)
         guard let path: String = bundle?.path(forResource: resource, ofType: "json") else { throw NSError() }
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)

@@ -18,7 +18,12 @@ class ItemDetailsAttributesCell: UICollectionViewCell {
             self.collectionView.reloadData()
         }
     }
-
+    @IBOutlet weak var title: UILabel! {
+        didSet {
+            title.font = Styles.mainTitleFont
+            title.textColor = Styles.mainTitleColor
+        }
+    }
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func awakeFromNib() {

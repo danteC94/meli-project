@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AtttributeCell: UICollectionViewCell {
+public class AtttributeCell: UICollectionViewCell {
     struct ViewData {
         let attributeName: String?
         let attributeValue: String?
@@ -16,33 +16,33 @@ class AtttributeCell: UICollectionViewCell {
 
     var viewData: ViewData? {
         didSet {
-            self.attributeName.text = viewData?.attributeName
-            self.attributeValue.text = viewData?.attributeValue
+            guard let viewData = viewData else { return }
+            self.setUpComponentData(viewData: viewData)
         }
     }
-    @IBOutlet weak var mainContainer: UIView! {
-        didSet {
-            mainContainer.layer.borderColor = UIColor.gray.cgColor
-            mainContainer.layer.borderWidth = 2
-            mainContainer.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var mainContainer: UIView!
+    @IBOutlet weak var attributeName: UILabel!
+    @IBOutlet weak var attributeValue: UILabel!
 
-    @IBOutlet weak var attributeName: UILabel! {
-        didSet {
-            attributeName.textAlignment = .center
-        }
-    }
-
-    @IBOutlet weak var attributeValue: UILabel! {
-        didSet {
-            attributeValue.textAlignment = .center
-        }
-    }
-
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.setUpComponentStyles()
     }
 
+    func setUpComponentStyles() {
+        self.mainContainer.layer.borderColor = UIColor.gray.cgColor
+        self.mainContainer.layer.borderWidth = 2
+        self.mainContainer.layer.cornerRadius = 10
+        self.attributeName.textAlignment = .center
+        self.attributeName.font = Styles.smallTitleFont
+        self.attributeName.textColor = Styles.mainTitleColor
+        self.attributeValue.textAlignment = .center
+        self.attributeValue.font = Styles.descriptionFont
+        self.attributeValue.textColor = Styles.descriptionColor
+    }
+
+    func setUpComponentData(viewData: ViewData) {
+        self.attributeName.text = viewData.attributeName
+        self.attributeValue.text = viewData.attributeValue
+    }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemDetailsPriceCell: UICollectionViewCell {
+public class ItemDetailsPriceCell: UICollectionViewCell {
     struct ViewData {
         let price: Double
         let installmentsQuantity: Int?
@@ -18,25 +18,35 @@ class ItemDetailsPriceCell: UICollectionViewCell {
     var viewData: ViewData? {
         didSet {
             guard let viewData = viewData else { return }
-            self.price.text = "$ \(viewData.price)"
-            self.installments.text = "Cuotas:"
-            if let installmentsQuantity = viewData.installmentsQuantity, let installmentsAmount = viewData.installmentsAmount {
-                self.installmentsDescription.text = "\(installmentsQuantity) cuotas de \(installmentsAmount)"
-            }
+            self.setUpComponentData(viewData: viewData)
         }
     }
 
     @IBOutlet weak var title: UILabel!
-
     @IBOutlet weak var price: UILabel!
-
     @IBOutlet weak var installments: UILabel!
-
-
     @IBOutlet weak var installmentsDescription: UILabel!
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
+        self.setUpComponentStyles()
+    }
 
+    func setUpComponentStyles() {
+        self.title.font = Styles.titleFont
+        self.price.font = Styles.titleFont
+        self.price.textColor = Styles.titleColor
+        self.installments.font = Styles.titleFont
+        self.installmentsDescription.font = Styles.bodyFont
+        self.installmentsDescription.textColor = Styles.importantDescriptionColor
+    }
+
+    func setUpComponentData(viewData: ViewData) {
+        self.title.text = "Precio:"
+        self.price.text = "$ \(viewData.price)"
+        if let installmentsQuantity = viewData.installmentsQuantity, let installmentsAmount = viewData.installmentsAmount {
+            self.installments.text = "Cuotas:"
+            self.installmentsDescription.text = "\(installmentsQuantity) cuotas de $ \(installmentsAmount)"
+        }
     }
 }
