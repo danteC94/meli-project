@@ -54,6 +54,10 @@ public struct ItemImmutableModel: Decodable {
         case sellerAddress = "seller_address"
         case attributes
     }
+
+    func itemCondition() -> String? {
+        return self.attributes?.first(where: { $0.id == "ITEM_CONDITION" })?.valueName
+    }
 }
 
 public struct SaleTerms: Decodable {

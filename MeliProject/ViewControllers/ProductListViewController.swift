@@ -68,6 +68,7 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
                                                       thumbnailURL: item.thumbnail,
                                                       price: item.price,
                                                       freeShipping: item.shipping?.freeShipping,
+                                                      itemCondition: item.itemCondition(),
                                                       imageRequestClosure: self.viewData?.imageRequestClosure)
         cell.viewData = cellViewData
         return cell

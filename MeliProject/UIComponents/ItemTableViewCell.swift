@@ -14,15 +14,21 @@ class ItemTableViewCell: UITableViewCell {
         let thumbnailURL: String?
         let price: Double
         let freeShipping: Bool?
+        let itemCondition: String?
         let imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     }
 
     var viewData: ViewData? {
         didSet {
             self.title.text = viewData?.title
-            self.price.text = "$ \(viewData?.price)"
+            if let price = viewData?.price {
+                self.price.text = "$ \(price)"
+            }
             if let freeShipping = viewData?.freeShipping, freeShipping {
                 self.shipping.text = "Envio Gratis!"
+            }
+            if let itemCondition = viewData?.itemCondition {
+                self.condition.text = itemCondition
             }
             guard let thumbnailURL = viewData?.thumbnailURL else { return }
             viewData?.imageRequestClosure?(thumbnailURL) { [weak self] image in
@@ -50,6 +56,9 @@ class ItemTableViewCell: UITableViewCell {
             shipping.font = .systemFont(ofSize: 14)
         }
     }
+
+    @IBOutlet weak var condition: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
