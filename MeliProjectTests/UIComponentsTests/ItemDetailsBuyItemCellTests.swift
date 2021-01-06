@@ -28,16 +28,16 @@ class ItemDetailsBuyItemCellTests: XCTestCase, TestBase {
 
         XCTAssertEqual(sut.buyButton.layer.cornerRadius, 15)
         XCTAssertEqual(sut.buyButton.backgroundColor, Styles.buttonColor)
-        XCTAssertEqual(sut.availableQuantity.font, Styles.smallTitleFont)
+        XCTAssertEqual(sut.buyButton.titleLabel?.font , Styles.smallTitleFont)
+        XCTAssertEqual(sut.buyButton.titleLabel?.textColor, Styles.buttonWidthBackgroundColor)
+        XCTAssertEqual(sut.availableQuantity.font, Styles.subtitleFont)
         XCTAssertEqual(sut.availableQuantity.textColor, Styles.mainTitleColor)
         XCTAssertEqual(sut.availableQuantityValue.font , Styles.subtitleFont)
         XCTAssertEqual(sut.availableQuantityValue.textColor, Styles.descriptionColor)
-        XCTAssertEqual(sut.soldQuantity.font, Styles.smallTitleFont)
+        XCTAssertEqual(sut.soldQuantity.font, Styles.subtitleFont)
         XCTAssertEqual(sut.soldQuantity.textColor , Styles.mainTitleColor)
         XCTAssertEqual(sut.soldQuantityValue.font, Styles.subtitleFont)
         XCTAssertEqual(sut.soldQuantityValue.textColor, Styles.descriptionColor)
-        XCTAssertEqual(sut.buyButton.titleLabel?.font , Styles.bodyFont)
-        XCTAssertEqual(sut.buyButton.titleLabel?.textColor, Styles.buttonWidthBackgroundColor)
     }
 
     func testSetRatingStarsWithTwoAndAHalfStars() {
@@ -46,7 +46,7 @@ class ItemDetailsBuyItemCellTests: XCTestCase, TestBase {
         XCTAssertEqual(sut.buyButton.titleLabel?.text, "Comprar producto en Mercado Libre")
         XCTAssertEqual(sut.availableQuantity.text, "Cantidad disponible:")
         XCTAssertEqual(sut.availableQuantityValue.text, String(5))
-        XCTAssertEqual(sut.soldQuantity.text, "Cantidad de ventas de este producto:")
+        XCTAssertEqual(sut.soldQuantity.text, "Cantidad vendida:")
         XCTAssertEqual(sut.soldQuantityValue.text, String(5))
     }
 

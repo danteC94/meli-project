@@ -297,16 +297,24 @@
 			path = ClassesTests;
 			sourceTree = "<group>";
 		};
+		FE5582CA25A65F060043617F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FE99EC7D259D60BE00AEA5AB /* URLManager.swift */,
+				FE99EC81259D885100AEA5AB /* TaskManager.swift */,
+				FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */,
+				FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */,
+				FE99ECB625A0D08700AEA5AB /* NetworkManager+Image.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		FE99EC7C259D5C5300AEA5AB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FE5582CA25A65F060043617F /* Managers */,
 				FE99EC95259E602D00AEA5AB /* Utils */,
 				FE99EC83259D8A1D00AEA5AB /* Operations */,
-				FE99EC7D259D60BE00AEA5AB /* URLManager.swift */,
-				FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */,
-				FE99EC81259D885100AEA5AB /* TaskManager.swift */,
-				FE99EC9C259F6AF600AEA5AB /* NetworkManager+Search.swift */,
-				FE99ECB625A0D08700AEA5AB /* NetworkManager+Image.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";

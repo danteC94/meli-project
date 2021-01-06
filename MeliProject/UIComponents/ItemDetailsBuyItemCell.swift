@@ -40,16 +40,16 @@ public class ItemDetailsBuyItemCell: UICollectionViewCell {
     func setUpComponentStyles() {
         self.buyButton.layer.cornerRadius = 15
         self.buyButton.backgroundColor = Styles.buttonColor
-        self.availableQuantity.font = Styles.smallTitleFont
+        self.buyButton.titleLabel?.textColor = Styles.buttonWidthBackgroundColor
+        self.buyButton.titleLabel?.font = Styles.smallTitleFont
+        self.availableQuantity.font = Styles.subtitleFont
         self.availableQuantity.textColor = Styles.mainTitleColor
         self.availableQuantityValue.font = Styles.subtitleFont
         self.availableQuantityValue.textColor = Styles.descriptionColor
-        self.soldQuantity.font = Styles.smallTitleFont
+        self.soldQuantity.font = Styles.subtitleFont
         self.soldQuantity.textColor = Styles.mainTitleColor
         self.soldQuantityValue.font = Styles.subtitleFont
         self.soldQuantityValue.textColor = Styles.descriptionColor
-        self.buyButton.titleLabel?.font = Styles.bodyFont
-        self.buyButton.titleLabel?.textColor = Styles.buttonWidthBackgroundColor
     }
 
     func setUpComponentData(viewData: ViewData) {
@@ -59,7 +59,7 @@ public class ItemDetailsBuyItemCell: UICollectionViewCell {
             self.availableQuantityValue.text = String(availableQuantity)
         }
         if let soldQuantity = viewData.soldQuantity {
-            self.soldQuantity.text = "Cantidad de ventas de este producto:"
+            self.soldQuantity.text = "Cantidad vendida:"
             self.soldQuantityValue.text = String(soldQuantity)
         }
     }
