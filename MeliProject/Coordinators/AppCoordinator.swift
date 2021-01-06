@@ -61,6 +61,7 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator {
 
         var detailCoordinator: GenericCoordinatorBase = ProductDetailsCoordinator(rootVC: detailRootVC, navVC: detailNavVC)
         self.pushDetailCoordinator(coordinator: &detailCoordinator)
+        self.productDetailsCoordinator?.delegate = self
         self.productDetailsCoordinator?.start()
     }
 
@@ -86,7 +87,7 @@ extension AppCoordinator: UISplitViewControllerDelegate {}
 
 extension AppCoordinator: MasterDetailRooter {
     func displayMasterNavigation() {
-
+        (self.splitViewController.viewControllers.first as? UINavigationController)?.popToRootViewController(animated: true)
     }
 
     func displayDetailNavigation(itemId: String, installments: Installments?, seller: Seller?) {

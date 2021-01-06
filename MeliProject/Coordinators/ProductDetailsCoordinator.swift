@@ -10,6 +10,7 @@ import UIKit
 
 public class ProductDetailsCoordinator: GenericCoordinatorBase, GenericCoordinator {
     var itemId: String?
+    var delegate: MasterDetailRooter?
     let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void = { imageURL, completion in
         NetworkManager.requestImage(imageURL: imageURL, success: { retrievedImage in
             DispatchQueue.main.async {
@@ -33,9 +34,13 @@ public class ProductDetailsCoordinator: GenericCoordinatorBase, GenericCoordinat
         let productDetailsVC = self.rootViewController as? ProductDetailsViewController
         NetworkManager.getItemDetails(decodableType: ItemImmutableModel.self,
                                       itemId: itemId,
-                                      success: { item in
-                                        guard let item = item as? ItemImmutableModel else { return }
-                                        productDetailsVC?.viewData = ProductDetailsViewController.ViewData(item: item, installments: installments, seller: seller, imageRequestClosure: self.imageRequestClosure)
+                                      success: { [weak self] item in
+                                        guard let self = self, let item = item as? ItemImmutableModel else { return }
+                                        productDetailsVC?.delegate = self
+                                        productDetailsVC?.viewData = ProductDetailsViewController.ViewData(item: item,
+                                                                                                           installments: installments,
+                                                                                                           seller: seller,
+                                                                                                           imageRequestClosure: self.imageRequestClosure)
         }, failure: { error in
             print(error)
         })
@@ -43,5 +48,11 @@ public class ProductDetailsCoordinator: GenericCoordinatorBase, GenericCoordinat
 
     func finish() {
         popCoordinator(coordinator: self)
+    }
+}
+
+extension ProductDetailsCoordinator: ProductDetailsViewControllerDelegate {
+    func productDetailsVCDidSelectBackButton() {
+        self.delegate?.displayMasterNavigation()
     }
 }

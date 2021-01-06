@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProductDetailsViewControllerDelegate {
+    func productDetailsVCDidSelectBackButton()
+}
+
 public class ProductDetailsViewController: UIViewController {
     struct ViewData {
         let item: ItemImmutableModel
@@ -16,6 +20,7 @@ public class ProductDetailsViewController: UIViewController {
         let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void
     }
 
+    var delegate: ProductDetailsViewControllerDelegate?
     var viewData: ViewData? {
         didSet {
             DispatchQueue.main.async {
@@ -47,12 +52,32 @@ public class ProductDetailsViewController: UIViewController {
 
         self.title = "Mercado Libre"
         self.navigationController?.navigationBar.barTintColor = .yellow
+        self.displayBackButton(userInterfaz: UIDevice.current.userInterfaceIdiom)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(UINib(nibName: "ItemDetailsHeaderCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsHeaderCell")
-        self.collectionView.register(UINib(nibName: "ItemDetailsPriceCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsPriceCell")
-        self.collectionView.register(UINib(nibName: "ItemDetailsAttributesCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsAttributesCell")
-        self.collectionView.register(UINib(nibName: "ItemDetailsSellerCell", bundle: nil), forCellWithReuseIdentifier: "ItemDetailsSellerCell")
+        self.collectionView.register(UINib(nibName: "ItemDetailsHeaderCell", bundle: nil),
+                                     forCellWithReuseIdentifier: "ItemDetailsHeaderCell")
+        self.collectionView.register(UINib(nibName: "ItemDetailsPriceCell", bundle: nil),
+                                     forCellWithReuseIdentifier: "ItemDetailsPriceCell")
+        self.collectionView.register(UINib(nibName: "ItemDetailsAttributesCell", bundle: nil),
+                                     forCellWithReuseIdentifier: "ItemDetailsAttributesCell")
+        self.collectionView.register(UINib(nibName: "ItemDetailsSellerCell", bundle: nil),
+                                     forCellWithReuseIdentifier: "ItemDetailsSellerCell")
+    }
+
+    func displayBackButton(userInterfaz: UIUserInterfaceIdiom) {
+        if userInterfaz == .phone {
+            self.navigationItem.hidesBackButton = true
+            let newBackButton = UIBarButtonItem(title: "Volver",
+                                                style: UIBarButtonItem.Style.plain,
+                                                target: self,
+                                                action: #selector(back(sender:)))
+            self.navigationItem.leftBarButtonItem = newBackButton
+        }
+    }
+
+    @objc func back(sender: UIBarButtonItem) {
+        delegate?.productDetailsVCDidSelectBackButton()
     }
 }
 
