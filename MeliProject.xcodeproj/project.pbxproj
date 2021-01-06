@@ -26,6 +26,8 @@
 		FE556BA7259D26F300066353 /* GenericCoordinatorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BA6259D26F300066353 /* GenericCoordinatorBase.swift */; };
 		FE556BA9259D387D00066353 /* CoordinatorBaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BA8259D387D00066353 /* CoordinatorBaseProtocols.swift */; };
 		FE556BAC259D42E400066353 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE556BAB259D42E400066353 /* AppCoordinatorTests.swift */; };
+		FE5582BE25A5F9B20043617F /* AttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5582BC25A5F9B20043617F /* AttributesViewController.swift */; };
+		FE5582BF25A5F9B20043617F /* AttributesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE5582BD25A5F9B20043617F /* AttributesViewController.xib */; };
 		FE99EC7E259D60BE00AEA5AB /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC7D259D60BE00AEA5AB /* URLManager.swift */; };
 		FE99EC80259D65B400AEA5AB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */; };
 		FE99EC82259D885100AEA5AB /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC81259D885100AEA5AB /* TaskManager.swift */; };
@@ -101,6 +103,8 @@
 		FE556BA6259D26F300066353 /* GenericCoordinatorBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCoordinatorBase.swift; sourceTree = "<group>"; };
 		FE556BA8259D387D00066353 /* CoordinatorBaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorBaseProtocols.swift; sourceTree = "<group>"; };
 		FE556BAB259D42E400066353 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		FE5582BC25A5F9B20043617F /* AttributesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributesViewController.swift; sourceTree = "<group>"; };
+		FE5582BD25A5F9B20043617F /* AttributesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributesViewController.xib; sourceTree = "<group>"; };
 		FE99EC7D259D60BE00AEA5AB /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 		FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FE99EC81259D885100AEA5AB /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				FE556B94259CD09200066353 /* ProductListViewController.xib */,
 				FE556B97259CD0BD00066353 /* ProductDetailsViewController.swift */,
 				FE556B98259CD0BD00066353 /* ProductDetailsViewController.xib */,
+				FE5582BC25A5F9B20043617F /* AttributesViewController.swift */,
+				FE5582BD25A5F9B20043617F /* AttributesViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -472,6 +478,7 @@
 				FE99ECD625A180E300AEA5AB /* ItemDetailsPriceCell.xib in Resources */,
 				FE556B8C259CCF1900066353 /* MainSplitViewController.xib in Resources */,
 				FE99ECE425A3983000AEA5AB /* ItemDetailsSellerCell.xib in Resources */,
+				FE5582BF25A5F9B20043617F /* AttributesViewController.xib in Resources */,
 				FE99ECDC25A2213100AEA5AB /* ItemDetailsAttributesCell.xib in Resources */,
 				FE556B96259CD09200066353 /* ProductListViewController.xib in Resources */,
 				FE99ECD225A180CE00AEA5AB /* ItemDetailsHeaderCell.xib in Resources */,
@@ -510,6 +517,7 @@
 				FE99EC9D259F6AF600AEA5AB /* NetworkManager+Search.swift in Sources */,
 				FE556B92259CD06400066353 /* ProductDetailsCoordinator.swift in Sources */,
 				FE99EC7E259D60BE00AEA5AB /* URLManager.swift in Sources */,
+				FE5582BE25A5F9B20043617F /* AttributesViewController.swift in Sources */,
 				FE99ECD525A180E300AEA5AB /* ItemDetailsPriceCell.swift in Sources */,
 				FE99EC9F259FCF5100AEA5AB /* PaginatedOperation.swift in Sources */,
 				FE556B95259CD09200066353 /* ProductListViewController.swift in Sources */,

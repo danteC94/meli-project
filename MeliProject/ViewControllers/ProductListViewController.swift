@@ -31,7 +31,6 @@ public class ProductListViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var searchBarContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     public override func viewDidLoad() {

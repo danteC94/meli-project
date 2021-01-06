@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProductDetailsViewControllerDelegate {
     func productDetailsVCDidSelectBackButton()
+    func productDetailsVCDidSelectSeeAllAttributes(attributes: [Attribute])
 }
 
 public class ProductDetailsViewController: UIViewController {
@@ -49,7 +50,6 @@ public class ProductDetailsViewController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "Mercado Libre"
         self.navigationController?.navigationBar.barTintColor = .yellow
         self.displayBackButton(userInterfaz: UIDevice.current.userInterfaceIdiom)
@@ -68,11 +68,11 @@ public class ProductDetailsViewController: UIViewController {
     func displayBackButton(userInterfaz: UIUserInterfaceIdiom) {
         if userInterfaz == .phone {
             self.navigationItem.hidesBackButton = true
-            let newBackButton = UIBarButtonItem(title: "Volver",
+            let backButton = UIBarButtonItem(title: "Volver",
                                                 style: UIBarButtonItem.Style.plain,
                                                 target: self,
                                                 action: #selector(back(sender:)))
-            self.navigationItem.leftBarButtonItem = newBackButton
+            self.navigationItem.leftBarButtonItem = backButton
         }
     }
 
@@ -118,6 +118,7 @@ extension ProductDetailsViewController: UICollectionViewDataSource, UICollection
                 return UICollectionViewCell()
             }
             cell.viewData = ItemDetailsAttributesCell.ViewData(attributes: item.attributes)
+            cell.delegate = self
             return cell
         case 3:
             guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ItemDetailsSellerCell", for: indexPath) as? ItemDetailsSellerCell else {
@@ -137,5 +138,12 @@ extension ProductDetailsViewController: UICollectionViewDataSource, UICollection
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.bounds.size.width, height: view.bounds.size.height / 2)
+    }
+}
+
+extension ProductDetailsViewController: ItemDetailsAttributesCellDelegate {
+    func itemDetailsAttributesCellDidSelectSeeAllAttributes() {
+        guard let attributes = self.viewData?.item.attributes else { return }
+        self.delegate?.productDetailsVCDidSelectSeeAllAttributes(attributes: attributes)
     }
 }

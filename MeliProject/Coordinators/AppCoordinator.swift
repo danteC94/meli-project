@@ -93,7 +93,7 @@ extension AppCoordinator: MasterDetailRooter {
     func displayDetailNavigation(itemId: String, installments: Installments?, seller: Seller?) {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
-            self.splitViewController.showDetailViewController(self.detailRootVC, sender: nil)
+            self.splitViewController.showDetailViewController(self.detailNavVC, sender: nil)
             (self.childCoordinators.last as? ProductDetailsCoordinator)?.displayItemDetails(itemId: itemId, installments: installments, seller: seller)
         case .pad:
             (self.childCoordinators.last as? ProductDetailsCoordinator)?.displayItemDetails(itemId: itemId, installments: installments, seller: seller)

@@ -21,4 +21,5 @@ public struct Styles {
     static let descriptionColor: UIColor = UIColor.gray
     static let importantDescriptionColor: UIColor = UIColor.init(red: 0, green: 150/255, blue: 0, alpha: 1)
     static let navigationBackgroundColor: UIColor = UIColor.yellow
+    static let buttonColor: UIColor = UIColor.init(red: 0, green: 70/255, blue: 255/255, alpha: 1)
 }

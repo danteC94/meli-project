@@ -1,58 +1,54 @@
 //
-//  ItemDetailsAttributesCell.swift
+//  AttributesViewController.swift
 //  MeliProject
 //
-//  Created by dante on 03/01/2021.
+//  Created by dante on 06/01/2021.
 //  Copyright © 2021 dante. All rights reserved.
 //
 
 import UIKit
 
-protocol ItemDetailsAttributesCellDelegate {
-    func itemDetailsAttributesCellDidSelectSeeAllAttributes()
+protocol AttributesViewControllerDelegate {
+    func AttributesVCDidSelectBackButton()
 }
 
-class ItemDetailsAttributesCell: UICollectionViewCell {
+class AttributesViewController: UIViewController {
     struct ViewData {
         let attributes: [Attribute]?
     }
 
+    var delegate: AttributesViewControllerDelegate?
     var viewData: ViewData? {
         didSet {
             self.collectionView.reloadData()
         }
     }
-    var delegate: ItemDetailsAttributesCellDelegate?
 
-    @IBOutlet weak var title: UILabel! {
-        didSet {
-            title.font = Styles.mainTitleFont
-            title.textColor = Styles.mainTitleColor
-        }
-    }
-
-    @IBOutlet weak var seeAllAttributes: UIButton! {
-        didSet {
-            seeAllAttributes.titleLabel?.font = Styles.subtitleFont
-            seeAllAttributes.titleLabel?.textColor = Styles.buttonColor
-        }
-    }
     @IBOutlet weak var collectionView: UICollectionView!
 
-    @IBAction func seeAllAttributes(_ sender: Any) {
-        self.delegate?.itemDetailsAttributesCellDidSelectSeeAllAttributes()
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.displayBackButton()
         self.collectionView.register(UINib(nibName: "AtttributeCell", bundle: nil), forCellWithReuseIdentifier: "AtttributeCell")
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.isScrollEnabled = false
+    }
+
+    func displayBackButton() {
+        self.navigationItem.hidesBackButton = true
+        let backButton = UIBarButtonItem(title: "Volver",
+                                            style: UIBarButtonItem.Style.plain,
+                                            target: self,
+                                            action: #selector(back(sender:)))
+        self.navigationItem.leftBarButtonItem = backButton
+    }
+
+    @objc func back(sender: UIBarButtonItem) {
+        delegate?.AttributesVCDidSelectBackButton()
     }
 }
 
-extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension AttributesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.viewData?.attributes?.count ?? 0
     }
@@ -67,6 +63,15 @@ extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionVie
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (contentView.bounds.size.width / 2) - 32, height: 100)
+        let defaultSize = CGSize(width: (self.view.bounds.size.width / 2), height: 100)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            let horizontalPadding: CGFloat = 32
+            return CGSize(width: self.view.bounds.size.width - horizontalPadding, height: 150)
+        case .pad:
+            return CGSize(width: self.view.bounds.size.width / 2, height: 150)
+        default:
+            return defaultSize
+        }
     }
 }

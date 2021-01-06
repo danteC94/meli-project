@@ -55,4 +55,20 @@ extension ProductDetailsCoordinator: ProductDetailsViewControllerDelegate {
     func productDetailsVCDidSelectBackButton() {
         self.delegate?.displayMasterNavigation()
     }
+
+    func productDetailsVCDidSelectSeeAllAttributes(attributes: [Attribute]) {
+        self.navVC.splitViewController?.preferredDisplayMode = .primaryHidden
+        let attributesVC = AttributesViewController()
+        _ = attributesVC.view
+        attributesVC.delegate = self
+        attributesVC.viewData = AttributesViewController.ViewData(attributes: attributes)
+        self.navVC.pushViewController(attributesVC, animated: true)
+    }
+}
+
+extension ProductDetailsCoordinator: AttributesViewControllerDelegate {
+    func AttributesVCDidSelectBackButton() {
+        self.navVC.splitViewController?.preferredDisplayMode = .allVisible
+        self.navVC.popViewController(animated: true)
+    }
 }
