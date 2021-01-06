@@ -66,6 +66,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="condition" destination="Mxl-SU-PoE" id="aVo-vj-b5q"/>
+                <outlet property="mainContainer" destination="H2p-sc-9uM" id="mOT-O5-zfI"/>
                 <outlet property="price" destination="VTm-3I-Vvy" id="e9u-Yf-pMb"/>
                 <outlet property="shipping" destination="sYb-27-fro" id="aDq-RV-Aic"/>
                 <outlet property="thumbnail" destination="hWx-1C-8Tn" id="gHd-xt-y32"/>

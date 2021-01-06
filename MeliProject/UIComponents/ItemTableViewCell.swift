@@ -25,6 +25,7 @@ public class ItemTableViewCell: UITableViewCell {
         }
     }
 
+    @IBOutlet weak var mainContainer: UIView!
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var price: UILabel!
@@ -41,6 +42,8 @@ public class ItemTableViewCell: UITableViewCell {
     }
 
     func setUpComponentStyles() {
+        self.mainContainer.layer.borderColor = UIColor.blue.cgColor
+        self.mainContainer.layer.borderWidth = 0.5
         self.title.font = Styles.smallTitleFont
         self.title.numberOfLines = 4
         self.price.font = Styles.smallTitleFont
@@ -49,8 +52,7 @@ public class ItemTableViewCell: UITableViewCell {
         self.shipping.textColor = Styles.importantDescriptionColor
         self.condition.font = Styles.bodyFont
         self.condition.textColor = Styles.descriptionColor
-        self.thumbnail.layer.cornerRadius = self.thumbnail.frame.height / 2
-        self.thumbnail.clipsToBounds = true
+        self.thumbnail.layer.cornerRadius = 15
     }
 
     func setUpComponentData(viewData: ViewData) {

@@ -18,6 +18,7 @@ class ItemDetailsAttributesCell: UICollectionViewCell {
             self.collectionView.reloadData()
         }
     }
+
     @IBOutlet weak var title: UILabel! {
         didSet {
             title.font = Styles.mainTitleFont
@@ -32,7 +33,6 @@ class ItemDetailsAttributesCell: UICollectionViewCell {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
-
 }
 
 extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -50,7 +50,7 @@ extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionVie
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let defaultSize = CGSize(width: (contentView.bounds.size.width / 2) - 42, height: 100)
+        let defaultSize = CGSize(width: (contentView.bounds.size.width / 2) - 32, height: 100)
         return defaultSize
     }
 }

@@ -20,7 +20,9 @@ public class AtttributeCell: UICollectionViewCell {
             self.setUpComponentData(viewData: viewData)
         }
     }
+
     @IBOutlet weak var mainContainer: UIView!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var attributeName: UILabel!
     @IBOutlet weak var attributeValue: UILabel!
 
