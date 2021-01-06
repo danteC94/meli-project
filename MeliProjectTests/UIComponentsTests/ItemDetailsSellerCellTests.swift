@@ -45,16 +45,12 @@ class ItemDetailsSellerCellTests: XCTestCase, TestBase {
 
         XCTAssertEqual(sut.title.text, "Datos del vendedor")
         XCTAssertEqual(sut.ratingsTitle.text, "Calificaciones")
-
         XCTAssertEqual(sut.transactionsTitle.text, "Cantidad de ventas")
         XCTAssertEqual(sut.transactionsValue.text, String(5))
-
         XCTAssertEqual(sut.transactionsCompletedTitle.text, "Cantidad de ventas exitosas")
         XCTAssertEqual(sut.transactionsCompletedValue.text, String(4))
-
         XCTAssertEqual(sut.transactionsCanceledTitle.text, "Cantidad de ventas canceladas")
         XCTAssertEqual(sut.transactionsCanceledValue.text, String(1))
-
         XCTAssertEqual(sut.firstStar.image, UIImage(systemName: "star.fill"))
         XCTAssertEqual(sut.secondStar.image, UIImage(systemName: "star.fill"))
         XCTAssertEqual(sut.thirdStar.image, UIImage(systemName: "star.fill"))

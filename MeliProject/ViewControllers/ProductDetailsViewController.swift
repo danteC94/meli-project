@@ -11,6 +11,7 @@ import UIKit
 protocol ProductDetailsViewControllerDelegate {
     func productDetailsVCDidSelectBackButton()
     func productDetailsVCDidSelectSeeAllAttributes(attributes: [Attribute])
+    func productDetailsVCDidSelectBuyButton(itemURL: String)
 }
 
 public class ProductDetailsViewController: UIViewController {
@@ -63,6 +64,8 @@ public class ProductDetailsViewController: UIViewController {
                                      forCellWithReuseIdentifier: "ItemDetailsAttributesCell")
         self.collectionView.register(UINib(nibName: "ItemDetailsSellerCell", bundle: nil),
                                      forCellWithReuseIdentifier: "ItemDetailsSellerCell")
+        self.collectionView.register(UINib(nibName: "ItemDetailsBuyItemCell", bundle: nil),
+                                     forCellWithReuseIdentifier: "ItemDetailsBuyItemCell")
     }
 
     func displayBackButton(userInterfaz: UIUserInterfaceIdiom) {
@@ -84,7 +87,7 @@ public class ProductDetailsViewController: UIViewController {
 extension ProductDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.viewData?.item != nil ? 4 : 0
+        return self.viewData?.item != nil ? 5 : 0
     }
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -107,14 +110,14 @@ extension ProductDetailsViewController: UICollectionViewDataSource, UICollection
             return cell
         case 1:
             guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ItemDetailsPriceCell", for: indexPath) as? ItemDetailsPriceCell else {
-                assertionFailure("Could not dequeue cell for row \(indexPath.row) in collection view")
+                assertionFailure("Could not dequeue cell for section \(indexPath.section) in collection view")
                 return UICollectionViewCell()
             }
             cell.viewData = ItemDetailsPriceCell.ViewData(price: item.price, installmentsQuantity: self.viewData?.installments?.quantity, installmentsAmount: self.viewData?.installments?.amount)
             return cell
         case 2:
             guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ItemDetailsAttributesCell", for: indexPath) as? ItemDetailsAttributesCell else {
-                assertionFailure("Could not dequeue cell for row \(indexPath.row) in collection view")
+                assertionFailure("Could not dequeue cell for section \(indexPath.section) in collection view")
                 return UICollectionViewCell()
             }
             cell.viewData = ItemDetailsAttributesCell.ViewData(attributes: item.attributes)
@@ -122,7 +125,7 @@ extension ProductDetailsViewController: UICollectionViewDataSource, UICollection
             return cell
         case 3:
             guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ItemDetailsSellerCell", for: indexPath) as? ItemDetailsSellerCell else {
-                assertionFailure("Could not dequeue cell for row \(indexPath.row) in collection view")
+                assertionFailure("Could not dequeue cell for section \(indexPath.section) in collection view")
                 return UICollectionViewCell()
             }
             let sellerTransactions = self.viewData?.seller?.sellerReputation?.transactions
@@ -131,6 +134,16 @@ extension ProductDetailsViewController: UICollectionViewDataSource, UICollection
                                                            transactionsCanceled: sellerTransactions?.canceled,
                                                            positiveRating: sellerTransactions?.ratings?.positive)
             return cell
+            case 4:
+                guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ItemDetailsBuyItemCell", for: indexPath) as? ItemDetailsBuyItemCell else {
+                    assertionFailure("Could not dequeue cell for section \(indexPath.section) in collection view")
+                    return UICollectionViewCell()
+                }
+                cell.viewData = ItemDetailsBuyItemCell.ViewData(availableQuantity: item.availableQuantity,
+                                                                soldQuantity: item.soldQuantity,
+                                                                permalink: item.permalink)
+                cell.delegate = self
+                return cell
         default:
             return UICollectionViewCell()
         }
@@ -145,5 +158,11 @@ extension ProductDetailsViewController: ItemDetailsAttributesCellDelegate {
     func itemDetailsAttributesCellDidSelectSeeAllAttributes() {
         guard let attributes = self.viewData?.item.attributes else { return }
         self.delegate?.productDetailsVCDidSelectSeeAllAttributes(attributes: attributes)
+    }
+}
+
+extension ProductDetailsViewController :ItemDetailsBuyItemCellDelegate {
+    func productListVCDidSelectBuyButton(itemURL: String) {
+        self.delegate?.productDetailsVCDidSelectBuyButton(itemURL: itemURL)
     }
 }

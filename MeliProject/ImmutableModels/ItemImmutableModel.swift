@@ -20,8 +20,10 @@ public struct ItemImmutableModel: Decodable {
     let currencyId: String
     let initialQuantity: Int?
     let availableQuantity: Int?
+    let soldQuantity: Int?
     let saleTerms: [SaleTerms]?
     let condition: String?
+    let permalink: String?
     let thumbnail: String?
     let secureThumbnail: String?
     let pictures: [Picture]?
@@ -43,8 +45,10 @@ public struct ItemImmutableModel: Decodable {
         case currencyId = "currency_id"
         case initialQuantity = "initial_quantity"
         case availableQuantity = "available_quantity"
+        case soldQuantity = "sold_quantity"
         case saleTerms = "sale_terms"
         case condition
+        case permalink
         case thumbnail
         case secureThumbnail = "secure_thumbnail"
         case pictures

@@ -64,6 +64,14 @@ extension ProductDetailsCoordinator: ProductDetailsViewControllerDelegate {
         attributesVC.viewData = AttributesViewController.ViewData(attributes: attributes)
         self.navVC.pushViewController(attributesVC, animated: true)
     }
+
+    func productDetailsVCDidSelectBuyButton(itemURL: String) {
+        guard let itemURL = URL(string: itemURL) else { return }
+        let webVC = WebViewController()
+        _ = webVC.view
+        webVC.viewData = WebViewController.ViewData(url: itemURL)
+        self.navVC.present(webVC, animated: true, completion: nil)
+    }
 }
 
 extension ProductDetailsCoordinator: AttributesViewControllerDelegate {
