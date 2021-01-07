@@ -31,19 +31,8 @@ class ItemDetailsAttributesCell: UICollectionViewCell, ViewDataCompliant {
 
     // MARK: Outlets
 
-    @IBOutlet weak var title: UILabel! {
-        didSet {
-            title.font = Styles.mainTitleFont
-            title.textColor = Styles.mainTitleColor
-        }
-    }
-
-    @IBOutlet weak var seeAllAttributes: UIButton! {
-        didSet {
-            seeAllAttributes.titleLabel?.font = Styles.subtitleFont
-            seeAllAttributes.titleLabel?.textColor = Styles.buttonColor
-        }
-    }
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var seeAllAttributes: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
 
     // MARK: Events
@@ -60,6 +49,16 @@ class ItemDetailsAttributesCell: UICollectionViewCell, ViewDataCompliant {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.isScrollEnabled = false
+        self.setUpComponentStyles()
+    }
+
+    // MARK: Methods
+
+    func setUpComponentStyles() {
+        self.title.font = Styles.mainTitleFont
+        self.title.textColor = Styles.mainTitleColor
+        self.seeAllAttributes.titleLabel?.font = Styles.subtitleFont
+        self.seeAllAttributes.titleLabel?.textColor = Styles.buttonColor
     }
 }
 

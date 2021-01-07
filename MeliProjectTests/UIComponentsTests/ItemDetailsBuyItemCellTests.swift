@@ -28,7 +28,7 @@ class ItemDetailsBuyItemCellTests: XCTestCase, TestBase {
 
         XCTAssertEqual(sut.buyButton.layer.cornerRadius, 15)
         XCTAssertEqual(sut.buyButton.backgroundColor, Styles.buttonColor)
-        XCTAssertEqual(sut.buyButton.titleLabel?.font , Styles.smallTitleFont)
+        XCTAssertEqual(sut.buyButton.titleLabel?.font , Styles.subtitleFont)
         XCTAssertEqual(sut.buyButton.titleLabel?.textColor, Styles.buttonWidthBackgroundColor)
         XCTAssertEqual(sut.availableQuantity.font, Styles.subtitleFont)
         XCTAssertEqual(sut.availableQuantity.textColor, Styles.mainTitleColor)

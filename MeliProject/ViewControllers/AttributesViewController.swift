@@ -43,6 +43,7 @@ class AttributesViewController: UIViewController, ViewDataCompliant {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Características"
         self.displayBackButton()
         self.collectionView.register(UINib(nibName: "AtttributeCell", bundle: nil), forCellWithReuseIdentifier: "AtttributeCell")
         self.collectionView.dataSource = self
@@ -53,10 +54,10 @@ class AttributesViewController: UIViewController, ViewDataCompliant {
 
     func displayBackButton() {
         self.navigationItem.hidesBackButton = true
-        let backButton = UIBarButtonItem(title: "Volver",
-                                            style: UIBarButtonItem.Style.plain,
-                                            target: self,
-                                            action: #selector(back(sender:)))
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"),
+                                         style: UIBarButtonItem.Style.plain,
+                                         target: self,
+                                         action: #selector(back(sender:)))
         self.navigationItem.leftBarButtonItem = backButton
     }
 }

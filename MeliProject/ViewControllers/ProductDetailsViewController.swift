@@ -87,7 +87,7 @@ public class ProductDetailsViewController: UIViewController, ViewDataCompliant {
         // when the app user interface idiom is iPhone.
         if userInterfaz == .phone {
             self.navigationItem.hidesBackButton = true
-            let backButton = UIBarButtonItem(title: "Volver",
+            let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"),
                                              style: UIBarButtonItem.Style.plain,
                                              target: self,
                                              action: #selector(back(sender:)))

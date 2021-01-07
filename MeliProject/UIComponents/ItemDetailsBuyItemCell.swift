@@ -57,7 +57,7 @@ public class ItemDetailsBuyItemCell: UICollectionViewCell, ViewDataCompliant {
         self.buyButton.layer.cornerRadius = 15
         self.buyButton.backgroundColor = Styles.buttonColor
         self.buyButton.titleLabel?.textColor = Styles.buttonWidthBackgroundColor
-        self.buyButton.titleLabel?.font = Styles.smallTitleFont
+        self.buyButton.titleLabel?.font = Styles.subtitleFont
         self.availableQuantity.font = Styles.subtitleFont
         self.availableQuantity.textColor = Styles.mainTitleColor
         self.availableQuantityValue.font = Styles.subtitleFont
