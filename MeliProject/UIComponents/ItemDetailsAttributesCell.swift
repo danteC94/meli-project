@@ -64,7 +64,8 @@ class ItemDetailsAttributesCell: UICollectionViewCell, ViewDataCompliant {
 
 extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewData?.attributes?.count ?? 0
+        guard self.viewData?.attributes != nil else { return 0 }
+        return 3
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
