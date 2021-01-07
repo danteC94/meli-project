@@ -8,11 +8,16 @@
 
 import UIKit
 
-public class AtttributeCell: UICollectionViewCell {
+public class AtttributeCell: UICollectionViewCell, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let attributeName: String?
         let attributeValue: String?
     }
+
+    // MARK: Attributes
 
     var viewData: ViewData? {
         didSet {
@@ -21,15 +26,21 @@ public class AtttributeCell: UICollectionViewCell {
         }
     }
 
+    // MARK: Outlets
+
     @IBOutlet weak var mainContainer: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var attributeName: UILabel!
     @IBOutlet weak var attributeValue: UILabel!
 
+    // MARK: Overrides
+
     public override func awakeFromNib() {
         super.awakeFromNib()
         self.setUpComponentStyles()
     }
+
+    // MARK: Methods
 
     func setUpComponentStyles() {
         self.mainContainer.layer.borderColor = UIColor.gray.cgColor

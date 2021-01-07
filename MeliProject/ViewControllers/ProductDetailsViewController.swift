@@ -14,7 +14,7 @@ protocol ProductDetailsViewControllerDelegate {
     func productDetailsVCDidSelectBuyButton(itemURL: String)
 }
 
-public class ProductDetailsViewController: UIViewController {
+public class ProductDetailsViewController: UIViewController, ViewDataCompliant {
     struct ViewData {
         let item: ItemImmutableModel
         let installments: Installments?

@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController {
+class WebViewController: UIViewController, ViewDataCompliant {
     let webView = WKWebView()
 
     struct ViewData {

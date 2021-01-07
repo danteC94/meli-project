@@ -12,12 +12,17 @@ protocol ItemDetailsBuyItemCellDelegate {
     func productListVCDidSelectBuyButton(itemURL: String)
 }
 
-public class ItemDetailsBuyItemCell: UICollectionViewCell {
+public class ItemDetailsBuyItemCell: UICollectionViewCell, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let availableQuantity: Int?
         let soldQuantity: Int?
         let permalink: String?
     }
+
+    // MARK: Attributes
 
     var delegate: ItemDetailsBuyItemCellDelegate?
     var viewData: ViewData? {
@@ -26,6 +31,8 @@ public class ItemDetailsBuyItemCell: UICollectionViewCell {
             setUpComponentData(viewData: viewData)
         }
     }
+
+    // MARK: Outlets
 
     @IBOutlet weak var availableQuantity: UILabel!
     @IBOutlet weak var availableQuantityValue: UILabel!
@@ -36,6 +43,15 @@ public class ItemDetailsBuyItemCell: UICollectionViewCell {
         super.awakeFromNib()
         setUpComponentStyles()
     }
+
+    // MARK: Events
+
+    @IBAction func buyButtonClicked(_ sender: Any) {
+        guard let itemURL = self.viewData?.permalink else { return }
+        self.delegate?.productListVCDidSelectBuyButton(itemURL: itemURL)
+    }
+
+    // MARK: Methods
 
     func setUpComponentStyles() {
         self.buyButton.layer.cornerRadius = 15
@@ -63,10 +79,4 @@ public class ItemDetailsBuyItemCell: UICollectionViewCell {
             self.soldQuantityValue.text = String(soldQuantity)
         }
     }
-
-    @IBAction func buyButtonClicked(_ sender: Any) {
-        guard let itemURL = self.viewData?.permalink else { return }
-        self.delegate?.productListVCDidSelectBuyButton(itemURL: itemURL)
-    }
-
 }

@@ -14,7 +14,7 @@ protocol ProductListViewControllerDelegate {
     func productListVCDidReachLastElement(query: String, itemsDisplayed: [ItemImmutableModel])
 }
 
-public class ProductListViewController: UIViewController {
+public class ProductListViewController: UIViewController, ViewDataCompliant {
     struct ViewData {
         let items: [ItemImmutableModel]
         let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void

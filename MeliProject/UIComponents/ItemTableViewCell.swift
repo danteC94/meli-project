@@ -8,7 +8,10 @@
 
 import UIKit
 
-public class ItemTableViewCell: UITableViewCell {
+public class ItemTableViewCell: UITableViewCell, ViewDataCompliant {
+
+    // MARK: Structs
+
     struct ViewData {
         let title: String
         let thumbnailURL: String?
@@ -18,6 +21,8 @@ public class ItemTableViewCell: UITableViewCell {
         let imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     }
 
+    // MARK: Attributes
+
     var viewData: ViewData? {
         didSet {
             guard let viewData = viewData else { return }
@@ -25,12 +30,16 @@ public class ItemTableViewCell: UITableViewCell {
         }
     }
 
+    // MARK: Outlets
+
     @IBOutlet weak var mainContainer: UIView!
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var shipping: UILabel!
     @IBOutlet weak var condition: UILabel!
+
+    // MARK: Overrides
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,6 +49,8 @@ public class ItemTableViewCell: UITableViewCell {
     public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+
+    // MARK: Methods
 
     func setUpComponentStyles() {
         self.mainContainer.layer.borderColor = UIColor.blue.cgColor

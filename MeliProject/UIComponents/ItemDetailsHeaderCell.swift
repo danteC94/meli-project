@@ -8,12 +8,17 @@
 
 import UIKit
 
-class ItemDetailsHeaderCell: UICollectionViewCell {
+class ItemDetailsHeaderCell: UICollectionViewCell, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let title: String
         let images: [String]?
         let imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     }
+
+    // MARK: Attributes
 
     var viewData: ViewData? {
         didSet {
@@ -26,13 +31,18 @@ class ItemDetailsHeaderCell: UICollectionViewCell {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
+        // Handle automatic layout on iPad to allow portrait and landscape modes
         if UIDevice.current.userInterfaceIdiom == .pad {
             layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
         return layout
     }()
 
+    // MARK: Outlets
+
     @IBOutlet weak var collectionView: UICollectionView!
+
+    // MARK: Overrides
 
     override func awakeFromNib() {
         super.awakeFromNib()

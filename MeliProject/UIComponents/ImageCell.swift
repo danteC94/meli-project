@@ -8,11 +8,16 @@
 
 import UIKit
 
-class ImageCell: UICollectionViewCell {
+class ImageCell: UICollectionViewCell, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let image: String?
         let imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     }
+
+    // MARK: Attributes
 
     var viewData: ViewData? {
         didSet {
@@ -23,6 +28,8 @@ class ImageCell: UICollectionViewCell {
             }
         }
     }
+
+    // MARK: Outlets
 
     @IBOutlet weak var image: UIImageView!
 }

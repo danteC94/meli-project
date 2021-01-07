@@ -33,6 +33,7 @@
 		FE5582C625A631750043617F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5582C425A631750043617F /* WebViewController.swift */; };
 		FE5582C725A631750043617F /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE5582C525A631750043617F /* WebViewController.xib */; };
 		FE5582C925A639520043617F /* ItemDetailsBuyItemCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5582C825A639520043617F /* ItemDetailsBuyItemCellTests.swift */; };
+		FE5582CD25A672AC0043617F /* UIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5582CC25A672AC0043617F /* UIProtocols.swift */; };
 		FE99EC7E259D60BE00AEA5AB /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC7D259D60BE00AEA5AB /* URLManager.swift */; };
 		FE99EC80259D65B400AEA5AB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */; };
 		FE99EC82259D885100AEA5AB /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99EC81259D885100AEA5AB /* TaskManager.swift */; };
@@ -115,6 +116,7 @@
 		FE5582C425A631750043617F /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		FE5582C525A631750043617F /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		FE5582C825A639520043617F /* ItemDetailsBuyItemCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsBuyItemCellTests.swift; sourceTree = "<group>"; };
+		FE5582CC25A672AC0043617F /* UIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProtocols.swift; sourceTree = "<group>"; };
 		FE99EC7D259D60BE00AEA5AB /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 		FE99EC7F259D65B400AEA5AB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FE99EC81259D885100AEA5AB /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				FE556BA8259D387D00066353 /* CoordinatorBaseProtocols.swift */,
+				FE5582CC25A672AC0043617F /* UIProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				FE556B92259CD06400066353 /* ProductDetailsCoordinator.swift in Sources */,
 				FE99EC7E259D60BE00AEA5AB /* URLManager.swift in Sources */,
 				FE5582BE25A5F9B20043617F /* AttributesViewController.swift in Sources */,
+				FE5582CD25A672AC0043617F /* UIProtocols.swift in Sources */,
 				FE99ECD525A180E300AEA5AB /* ItemDetailsPriceCell.swift in Sources */,
 				FE99EC9F259FCF5100AEA5AB /* PaginatedOperation.swift in Sources */,
 				FE556B95259CD09200066353 /* ProductListViewController.swift in Sources */,

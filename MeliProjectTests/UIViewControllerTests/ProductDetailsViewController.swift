@@ -35,7 +35,7 @@ class ProductDetailsViewControllerTests: XCTestCase, TestBase {
     func testLoadProductDetailsViewControllerWithAnItem() {
         givenOneItems()
 
-        XCTAssertEqual(dataSource.numberOfSections?(in: collectionView!), 4)
+        XCTAssertEqual(dataSource.numberOfSections?(in: collectionView!), 5)
     }
 
     // MARK: Given

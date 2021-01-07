@@ -8,12 +8,17 @@
 
 import UIKit
 
-public class ItemDetailsPriceCell: UICollectionViewCell {
+public class ItemDetailsPriceCell: UICollectionViewCell, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let price: Double
         let installmentsQuantity: Int?
         let installmentsAmount: Double?
     }
+
+    // MARK: Attributes
 
     var viewData: ViewData? {
         didSet {
@@ -22,15 +27,21 @@ public class ItemDetailsPriceCell: UICollectionViewCell {
         }
     }
 
+    // MARK: Outlets
+
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var installments: UILabel!
     @IBOutlet weak var installmentsDescription: UILabel!
 
+    // MARK: Overrides
+
     public override func awakeFromNib() {
         super.awakeFromNib()
         self.setUpComponentStyles()
     }
+
+    // MARK: Methods
 
     func setUpComponentStyles() {
         self.title.font = Styles.titleFont

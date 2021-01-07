@@ -12,17 +12,24 @@ protocol ItemDetailsAttributesCellDelegate {
     func itemDetailsAttributesCellDidSelectSeeAllAttributes()
 }
 
-class ItemDetailsAttributesCell: UICollectionViewCell {
+class ItemDetailsAttributesCell: UICollectionViewCell, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let attributes: [Attribute]?
     }
 
+    // MARK: Attributes
+
+    var delegate: ItemDetailsAttributesCellDelegate?
     var viewData: ViewData? {
         didSet {
             self.collectionView.reloadData()
         }
     }
-    var delegate: ItemDetailsAttributesCellDelegate?
+
+    // MARK: Outlets
 
     @IBOutlet weak var title: UILabel! {
         didSet {
@@ -39,9 +46,13 @@ class ItemDetailsAttributesCell: UICollectionViewCell {
     }
     @IBOutlet weak var collectionView: UICollectionView!
 
+    // MARK: Events
+
     @IBAction func seeAllAttributes(_ sender: Any) {
         self.delegate?.itemDetailsAttributesCellDidSelectSeeAllAttributes()
     }
+
+    // MARK: Overrides
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,6 +78,8 @@ extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionVie
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (contentView.bounds.size.width / 2) - 32, height: 100)
+        let spaceBetweenItems: CGFloat = 32
+        let numberOfCellsToDisplay: CGFloat = 2
+        return CGSize(width: (contentView.bounds.size.width / numberOfCellsToDisplay) - spaceBetweenItems, height: 100)
     }
 }

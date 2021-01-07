@@ -12,7 +12,7 @@ protocol AttributesViewControllerDelegate {
     func AttributesVCDidSelectBackButton()
 }
 
-class AttributesViewController: UIViewController {
+class AttributesViewController: UIViewController, ViewDataCompliant {
     struct ViewData {
         let attributes: [Attribute]?
     }

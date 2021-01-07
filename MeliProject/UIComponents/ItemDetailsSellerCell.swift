@@ -8,20 +8,28 @@
 
 import UIKit
 
-public class ItemDetailsSellerCell: UICollectionViewCell {
+public class ItemDetailsSellerCell: UICollectionViewCell, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let transactions: Int?
         let transactionsCompleted: Int?
         let transactionsCanceled: Int?
         let positiveRating: Float?
     }
+
+    // MARK: Attributes
+
+    var stars: [UIImageView]?
     var viewData: ViewData?{
         didSet {
             guard let viewData = viewData else { return }
             self.setUpComponentData(viewData: viewData)
         }
     }
-    var stars: [UIImageView]?
+
+    // MARK: Outlets
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var firstStar: UIImageView!
@@ -37,12 +45,15 @@ public class ItemDetailsSellerCell: UICollectionViewCell {
     @IBOutlet weak var transactionsCanceledTitle: UILabel!
     @IBOutlet weak var transactionsCanceledValue: UILabel!
 
+    // MARK: Overrides
     
     public override func awakeFromNib() {
         super.awakeFromNib()
         self.stars = [firstStar, secondStar, thirdStar, fourthStar, fifthStar]
         self.setUpComponentStyles()
     }
+
+    // MARK: Methods
 
     func setUpComponentStyles() {
         self.title.font = Styles.mainTitleFont
