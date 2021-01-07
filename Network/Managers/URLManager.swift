@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This manager is in charge of setting up the URL request for the
+ the different endpoints supported.
+*/
 class URLManager {
     static func setUpURL(for endPoint: EndPoint,
                          location: Location,

@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ This manager is in charge of making request to the network and
+ decoding de data retrieved.
+*/
 class TaskManager {
     public typealias HttpRequestSuccess = (Decodable) -> Void
     public typealias HttpRequestFailure = (Error?) -> Void
@@ -16,6 +20,7 @@ class TaskManager {
     public typealias PaginatedHttpRequestSuccess = (Decodable, PaginatedObject) -> Void
     public typealias PaginatedHttpRequestFailure = (Error?) -> Void
 
+    /// Makes an http get request for a decodable object.
     static func makeHttpGetRequest<T: Decodable>(urlRequest: URLRequest,
                                                  decodableType: T.Type,
                                                  success: @escaping HttpRequestSuccess,
@@ -34,6 +39,7 @@ class TaskManager {
         task.resume()
     }
 
+    /// Makes a paginated http get request for a decodable object.
     static func makePaginatedHttpGetRequest<T: Decodable>(urlRequest: URLRequest,
                                                           decodableType: T.Type,
                                                           success: @escaping PaginatedHttpRequestSuccess,
@@ -58,6 +64,8 @@ extension TaskManager {
     public typealias HttpImageRequestSuccess = (UIImage) -> Void
     public typealias HttpImageRequestFailure = (Error?) -> Void
 
+    // This specific for images which are not decodable objects.
+    /// Makes an http get request for an image.
     static func makeHttpGetRequestForImage(urlRequest: URLRequest,
                                            success: @escaping HttpImageRequestSuccess,
                                            failure: @escaping HttpImageRequestFailure) {
