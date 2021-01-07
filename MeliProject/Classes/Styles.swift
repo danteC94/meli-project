@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+Singleton which contains all the fonts and colors used on the app.
+*/
+
 public struct Styles {
     static let mainTitleFont: UIFont = .boldSystemFont(ofSize: 32)
     static let titleFont: UIFont = .boldSystemFont(ofSize: 26)

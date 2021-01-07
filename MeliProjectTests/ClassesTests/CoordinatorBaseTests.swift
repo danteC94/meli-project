@@ -29,7 +29,6 @@ class CoordinatorBaseTests: XCTestCase, TestBase {
 
     func testPushCoordinatorSetsTheCorrectParent() {
         self.sut.pushCoordinator(coordinator: &coordinatorBase,
-                                 navVC: coordinatorBase.navVC,
                                  rootVC: coordinatorBase.rootViewController, animated: false)
 
         XCTAssertEqual(sut.childCoordinators.count, 1)
@@ -39,7 +38,6 @@ class CoordinatorBaseTests: XCTestCase, TestBase {
 
     func testPushCoordinatorSetsTheCorrectNavigationFlow() {
         self.sut.pushCoordinator(coordinator: &coordinatorBase,
-                                 navVC: coordinatorBase.navVC,
                                  rootVC: coordinatorBase.rootViewController, animated: false)
         self.coordinatorBase.navVC.pushViewController(UIViewController(), animated: false)
 
@@ -51,7 +49,7 @@ class CoordinatorBaseTests: XCTestCase, TestBase {
         self.givenACoordinatorBaseWithTwoChildCoordinator()
 
         let lastChild = self.sut.childCoordinators.last
-        self.sut.popCoordinator(coordinator: lastChild!, navVC: lastChild!.navVC, animated: false)
+        self.sut.popCoordinator(coordinator: lastChild!, animated: false)
 
         XCTAssertEqual(sut.childCoordinators.count, 1)
         XCTAssertFalse(sut.childCoordinators.first === lastChild)
@@ -61,7 +59,7 @@ class CoordinatorBaseTests: XCTestCase, TestBase {
         self.givenACoordinatorBaseWithTwoChildCoordinatorsWithTwoViewControllers()
 
         let child = self.sut.childCoordinators.last
-        self.sut.popCoordinator(coordinator: child!, navVC: child!.navVC, animated: false)
+        self.sut.popCoordinator(coordinator: child!, animated: false)
 
         XCTAssertEqual(sut.childCoordinators.count, 1)
         XCTAssertEqual(sut.childCoordinators.first!.navVC.children.count, 2)
@@ -70,18 +68,15 @@ class CoordinatorBaseTests: XCTestCase, TestBase {
     func givenACoordinatorBaseWithTwoChildCoordinator() {
         var secondCoordinatorBase = GenericCoordinatorBase(rootViewController: UIViewController(), navVC: self.coordinatorBase.navVC)
         self.sut.pushCoordinator(coordinator: &coordinatorBase,
-                                 navVC: coordinatorBase.navVC,
                                  rootVC: coordinatorBase.rootViewController,
                                  animated: false)
         self.sut.pushCoordinator(coordinator: &secondCoordinatorBase,
-                                 navVC: secondCoordinatorBase.navVC,
                                  rootVC: secondCoordinatorBase.rootViewController,
                                  animated: false)
     }
 
     func givenACoordinatorBaseWithTwoChildCoordinatorsWithTwoViewControllers() {
         self.sut.pushCoordinator(coordinator: &coordinatorBase,
-                                 navVC: coordinatorBase.navVC,
                                  rootVC: coordinatorBase.rootViewController,
                                  animated: false)
         self.coordinatorBase.navVC.pushViewController(UIViewController(), animated: false)
@@ -89,7 +84,6 @@ class CoordinatorBaseTests: XCTestCase, TestBase {
         var secondCoordinatorBase = GenericCoordinatorBase(rootViewController: UIViewController(), navVC: self.coordinatorBase.navVC)
 
         self.sut.pushCoordinator(coordinator: &secondCoordinatorBase,
-                                 navVC: secondCoordinatorBase.navVC,
                                  rootVC: secondCoordinatorBase.rootViewController,
                                  animated: false)
         secondCoordinatorBase.navVC.pushViewController(UIViewController(), animated: false)

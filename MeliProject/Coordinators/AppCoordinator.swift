@@ -8,16 +8,38 @@
 
 import UIKit
 
+/**
+ An object that adopts the MasterDetailRooter protocol is responsible for providing
+ the navigation between master and details Navigation Controllers.
+
+ Since the Master and Details Coordinators handles the master and details navigations respectively, they are never removed, thus this navigation can not be handled by removing coordinators.
+*/
 protocol MasterDetailRooter {
     func displayMasterNavigation()
     func displayDetailNavigation(itemId: String, installments: Installments?, seller: Seller?)
 }
 
 public class AppCoordinator: MainCoordinatorBase, MainCoordinator {
-    var productListCoordinator: ProductListCoordinator? { return self.childCoordinators.first as? ProductListCoordinator}
-    var productDetailsCoordinator: ProductDetailsCoordinator? { return self.childCoordinators.last as? ProductDetailsCoordinator}
-    let splitViewController: UISplitViewController
+
+    // MARK: Attributes
+
     let window: UIWindow
+    let splitViewController: UISplitViewController
+    var productListCoordinator: ProductListCoordinator? { return self.childCoordinators.first as? ProductListCoordinator}
+    var productDetailsCoordinator: ProductDetailsCoordinator? { return self.childCoordinators.last as? ProductDetailsCoordinator }
+    /// This closure is intended to avoid making network request from UI components.
+    let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void = { imageURL, completion in
+        NetworkManager.requestImage(imageURL: imageURL, success: { retrievedImage in
+            DispatchQueue.main.async {
+                completion(retrievedImage)
+            }
+        }, failure: { error in
+            guard let error = error else { return }
+            print(error)
+        })
+    }
+
+    // MARK: Methods
 
     init(window: UIWindow, splitVC: UISplitViewController) {
         self.window = window
@@ -57,14 +79,21 @@ public class AppCoordinator: MainCoordinatorBase, MainCoordinator {
         var masterCoordinator: GenericCoordinatorBase = ProductListCoordinator(rootVC: masterRootVC, navVC: masterNavVC)
         self.pushMasterCoordinator(coordinator: &masterCoordinator)
         self.productListCoordinator?.delegate = self
+        self.productListCoordinator?.imageRequestClosure = self.imageRequestClosure
         self.productListCoordinator?.start()
 
         var detailCoordinator: GenericCoordinatorBase = ProductDetailsCoordinator(rootVC: detailRootVC, navVC: detailNavVC)
         self.pushDetailCoordinator(coordinator: &detailCoordinator)
         self.productDetailsCoordinator?.delegate = self
+        self.productDetailsCoordinator?.imageRequestClosure = self.imageRequestClosure
         self.productDetailsCoordinator?.start()
     }
 
+    /**
+     Starts the NetworkManager session with the specified location.
+
+     - Parameter locale: The locale to be used to start the session.
+    */
     func setUpNetworkSession(locale: Locale) {
         switch locale.regionCode {
         case "AR":

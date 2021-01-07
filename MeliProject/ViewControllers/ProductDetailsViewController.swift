@@ -19,7 +19,7 @@ public class ProductDetailsViewController: UIViewController, ViewDataCompliant {
         let item: ItemImmutableModel
         let installments: Installments?
         let seller: Seller?
-        let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void
+        let imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     }
 
     var delegate: ProductDetailsViewControllerDelegate?

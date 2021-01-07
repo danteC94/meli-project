@@ -17,7 +17,7 @@ protocol ProductListViewControllerDelegate {
 public class ProductListViewController: UIViewController, ViewDataCompliant {
     struct ViewData {
         let items: [ItemImmutableModel]
-        let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void
+        let imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     }
 
     let searchController = UISearchController(searchResultsController: nil)

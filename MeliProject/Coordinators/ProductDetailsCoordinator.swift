@@ -9,26 +9,20 @@
 import UIKit
 
 public class ProductDetailsCoordinator: GenericCoordinatorBase, GenericCoordinator {
+
+    // MARK: Attributes
+
     var itemId: String?
     var delegate: MasterDetailRooter?
-    let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void = { imageURL, completion in
-        NetworkManager.requestImage(imageURL: imageURL, success: { retrievedImage in
-            DispatchQueue.main.async {
-                completion(retrievedImage)
-            }
-        }, failure: { error in
-            guard let error = error else { return }
-            print(error)
-        })
-    }
+    var imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
+
+    // MARK: Methods
 
     init(rootVC: UIViewController, navVC: UINavigationController) {
         super.init(rootViewController: rootVC, navVC: navVC)
     }
 
-    public func start() {
-        
-    }
+    public func start() {}
 
     public func displayItemDetails(itemId: String, installments: Installments?, seller: Seller?) {
         let productDetailsVC = self.rootViewController as? ProductDetailsViewController
@@ -42,6 +36,7 @@ public class ProductDetailsCoordinator: GenericCoordinatorBase, GenericCoordinat
                                                                                                            seller: seller,
                                                                                                            imageRequestClosure: self.imageRequestClosure)
         }, failure: { error in
+            guard let error = error else { return }
             print(error)
         })
     }
@@ -57,6 +52,8 @@ extension ProductDetailsCoordinator: ProductDetailsViewControllerDelegate {
     }
 
     func productDetailsVCDidSelectSeeAllAttributes(attributes: [Attribute]) {
+        // Hide Master View Controller so that the details view
+        // controller can be displayed using the full screen on iPad.
         self.navVC.splitViewController?.preferredDisplayMode = .primaryHidden
         let attributesVC = AttributesViewController()
         _ = attributesVC.view
@@ -76,6 +73,7 @@ extension ProductDetailsCoordinator: ProductDetailsViewControllerDelegate {
 
 extension ProductDetailsCoordinator: AttributesViewControllerDelegate {
     func AttributesVCDidSelectBackButton() {
+        // Show Master View Controller on iPad.
         self.navVC.splitViewController?.preferredDisplayMode = .allVisible
         self.navVC.popViewController(animated: true)
     }

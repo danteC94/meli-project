@@ -9,19 +9,14 @@
 import UIKit
 
 public class ProductListCoordinator: GenericCoordinatorBase, GenericCoordinator {
-    let imageRequestClosure: (String, @escaping (UIImage) -> Void) -> Void = { imageURL, completion in
-        NetworkManager.requestImage(imageURL: imageURL, success: { retrievedImage in
-            DispatchQueue.main.async {
-                completion(retrievedImage)
-            }
-        }, failure: { error in
-            guard let error = error else { return }
-            print(error)
-        })
-    }
 
+    // MARK: Attributes
+    
+    var imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     var delegate: MasterDetailRooter?
 
+    // MARK: Methods
+    
     init(rootVC: UIViewController, navVC: UINavigationController) {
         super.init(rootViewController: rootVC, navVC: navVC)
     }
@@ -48,6 +43,7 @@ public class ProductListCoordinator: GenericCoordinatorBase, GenericCoordinator 
                                     completion(items)
         },
                                    failure: { error in
+                                    guard let error = error else { return }
                                     print(error)
         })
     }
