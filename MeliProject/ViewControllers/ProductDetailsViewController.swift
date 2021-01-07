@@ -15,12 +15,17 @@ protocol ProductDetailsViewControllerDelegate {
 }
 
 public class ProductDetailsViewController: UIViewController, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let item: ItemImmutableModel
         let installments: Installments?
         let seller: Seller?
         let imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     }
+
+    // MARK: Attributes
 
     var delegate: ProductDetailsViewControllerDelegate?
     var viewData: ViewData? {
@@ -40,6 +45,7 @@ public class ProductDetailsViewController: UIViewController, ViewDataCompliant {
         return layout
     }()
 
+    // MARK: Outlets
 
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -47,7 +53,13 @@ public class ProductDetailsViewController: UIViewController, ViewDataCompliant {
         }
     }
 
+    // MARK: Events
 
+    @objc func back(sender: UIBarButtonItem) {
+        delegate?.productDetailsVCDidSelectBackButton()
+    }
+
+    // MARK: Life Cycle
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,25 +80,28 @@ public class ProductDetailsViewController: UIViewController, ViewDataCompliant {
                                      forCellWithReuseIdentifier: "ItemDetailsBuyItemCell")
     }
 
+    // MARK: Methods
+
     func displayBackButton(userInterfaz: UIUserInterfaceIdiom) {
+        // Allows Details View Controller to go back to the Master View Controller
+        // when the app user interface idiom is iPhone.
         if userInterfaz == .phone {
             self.navigationItem.hidesBackButton = true
             let backButton = UIBarButtonItem(title: "Volver",
-                                                style: UIBarButtonItem.Style.plain,
-                                                target: self,
-                                                action: #selector(back(sender:)))
+                                             style: UIBarButtonItem.Style.plain,
+                                             target: self,
+                                             action: #selector(back(sender:)))
             self.navigationItem.leftBarButtonItem = backButton
         }
-    }
-
-    @objc func back(sender: UIBarButtonItem) {
-        delegate?.productDetailsVCDidSelectBackButton()
     }
 }
 
 extension ProductDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // Each section contains a UI Component which represents
+        // a block on the main screen. This approach allow us to modularize the
+        // UI.
         return self.viewData?.item != nil ? 5 : 0
     }
 
@@ -99,7 +114,7 @@ extension ProductDetailsViewController: UICollectionViewDataSource, UICollection
         switch indexPath.section {
         case 0:
             guard let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "ItemDetailsHeaderCell", for: indexPath) as? ItemDetailsHeaderCell else {
-                assertionFailure("Could not dequeue cell for row \(indexPath.row) in collection view")
+                assertionFailure("Could not dequeue cell for section \(indexPath.row) in collection view")
                 return UICollectionViewCell()
             }
             let images: [String]? = item.pictures?.compactMap {picture in

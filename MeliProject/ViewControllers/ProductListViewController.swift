@@ -15,10 +15,15 @@ protocol ProductListViewControllerDelegate {
 }
 
 public class ProductListViewController: UIViewController, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let items: [ItemImmutableModel]
         let imageRequestClosure: ((String, @escaping (UIImage) -> Void) -> Void)?
     }
+
+    // MARK: Attributes
 
     let searchController = UISearchController(searchResultsController: nil)
     var currentQuery: String?
@@ -31,7 +36,11 @@ public class ProductListViewController: UIViewController, ViewDataCompliant {
         }
     }
 
+    // MARK: Outlets
+
     @IBOutlet weak var tableView: UITableView!
+
+    // MARK: Life Cycle
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +49,7 @@ public class ProductListViewController: UIViewController, ViewDataCompliant {
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchBar.placeholder = "Buscar productos"
         self.navigationItem.searchController = searchController
-        self.navigationController?.navigationBar.barTintColor = .yellow
+        self.navigationController?.navigationBar.barTintColor = Styles.navigationBackgroundColor
         self.definesPresentationContext = true
         self.tableView.dataSource = self
         self.tableView.delegate = self

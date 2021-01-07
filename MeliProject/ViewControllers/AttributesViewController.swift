@@ -13,9 +13,14 @@ protocol AttributesViewControllerDelegate {
 }
 
 class AttributesViewController: UIViewController, ViewDataCompliant {
+
+    // MARK: Structs
+    
     struct ViewData {
         let attributes: [Attribute]?
     }
+
+    // MARK: Attributes
 
     var delegate: AttributesViewControllerDelegate?
     var viewData: ViewData? {
@@ -24,8 +29,18 @@ class AttributesViewController: UIViewController, ViewDataCompliant {
         }
     }
 
+    // MARK: Outlets
+
     @IBOutlet weak var collectionView: UICollectionView!
 
+    // MARK: Events
+    
+    @objc func back(sender: UIBarButtonItem) {
+        delegate?.AttributesVCDidSelectBackButton()
+    }
+
+    // MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.displayBackButton()
@@ -34,6 +49,8 @@ class AttributesViewController: UIViewController, ViewDataCompliant {
         self.collectionView.delegate = self
     }
 
+    // MARK: Methods
+
     func displayBackButton() {
         self.navigationItem.hidesBackButton = true
         let backButton = UIBarButtonItem(title: "Volver",
@@ -41,10 +58,6 @@ class AttributesViewController: UIViewController, ViewDataCompliant {
                                             target: self,
                                             action: #selector(back(sender:)))
         self.navigationItem.leftBarButtonItem = backButton
-    }
-
-    @objc func back(sender: UIBarButtonItem) {
-        delegate?.AttributesVCDidSelectBackButton()
     }
 }
 

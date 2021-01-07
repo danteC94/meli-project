@@ -10,12 +10,16 @@ import UIKit
 import WebKit
 
 class WebViewController: UIViewController, ViewDataCompliant {
-    let webView = WKWebView()
+
+    // MARK: Structs
 
     struct ViewData {
         let url: URL
     }
 
+    // MARK: Attributes
+
+    let webView = WKWebView()
     var viewData: ViewData? {
         didSet {
             if let url = viewData?.url {
@@ -25,6 +29,8 @@ class WebViewController: UIViewController, ViewDataCompliant {
         }
     }
 
+    // MARK: Overrides
+    
     public override func loadView() {
         self.view = webView
     }
