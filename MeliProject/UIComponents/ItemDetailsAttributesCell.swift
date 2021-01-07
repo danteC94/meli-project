@@ -78,8 +78,10 @@ extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionVie
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let spaceBetweenItems: CGFloat = 32
-        let numberOfCellsToDisplay: CGFloat = 2
-        return CGSize(width: (contentView.bounds.size.width / numberOfCellsToDisplay) - spaceBetweenItems, height: 100)
+        let collectionViewHeight: CGFloat = 376
+        let numberOfCellsToDisplay: CGFloat = 3
+        let collectionViewVerticalPadding: CGFloat = 16
+        let cellheight = (collectionViewHeight - collectionViewVerticalPadding) / numberOfCellsToDisplay
+        return CGSize(width: (contentView.bounds.size.width * 0.6), height: cellheight)
     }
 }
