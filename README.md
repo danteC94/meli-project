@@ -1,6 +1,6 @@
 # meli-project
 
-meli-project is an app that lets you make simple product searches on Mercado Libre, and shows you the details of each product.
+meli-project is an app that lets you make simple product searches on Mercado Libre, and also it allows you to see the details of each product.
 
 ## Features
 
