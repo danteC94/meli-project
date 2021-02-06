@@ -14,11 +14,11 @@ import UIKit
  decoding de data retrieved.
 */
 class TaskManager {
-    public typealias HttpRequestSuccess = (Decodable) -> Void
-    public typealias HttpRequestFailure = (Error?) -> Void
+    typealias HttpRequestSuccess = (Decodable) -> Void
+    typealias HttpRequestFailure = (Error?) -> Void
 
-    public typealias PaginatedHttpRequestSuccess = (Decodable, PaginatedObject) -> Void
-    public typealias PaginatedHttpRequestFailure = (Error?) -> Void
+    typealias PaginatedHttpRequestSuccess = (Decodable, PaginatedObject) -> Void
+    typealias PaginatedHttpRequestFailure = (Error?) -> Void
 
     /// Makes an http get request for a decodable object.
     static func makeHttpGetRequest<T: Decodable>(urlRequest: URLRequest,
@@ -61,8 +61,8 @@ class TaskManager {
 }
 
 extension TaskManager {
-    public typealias HttpImageRequestSuccess = (UIImage) -> Void
-    public typealias HttpImageRequestFailure = (Error?) -> Void
+    typealias HttpImageRequestSuccess = (UIImage) -> Void
+    typealias HttpImageRequestFailure = (Error?) -> Void
 
     // This specific for images which are not decodable objects.
     /// Makes an http get request for an image.

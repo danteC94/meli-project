@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import class NetworkLayer.NetworkManager
 
 /**
  An object that adopts the MasterDetailRooter protocol is responsible for providing

@@ -7,11 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 extension NetworkManager {
-    static func requestImage(imageURL: String,
-                         success: @escaping ImageOperation.requestImageSuccess,
-                         failure: @escaping ImageOperation.requestImageFailure) {
+    public typealias ImageRequestSuccess = (UIImage) -> Void
+    public typealias ImageRequestFailure = (Error?) -> Void
+
+    public static func requestImage(imageURL: String,
+                                    success: @escaping ImageRequestSuccess,
+                                    failure: @escaping ImageRequestFailure) {
         guard let location = Self.location, Self.session != nil else {
             assertionFailure("You need to set up the session before making http requests")
             return

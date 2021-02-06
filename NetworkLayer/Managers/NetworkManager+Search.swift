@@ -9,14 +9,14 @@
 import Foundation
 
 extension NetworkManager {
-    static func searchItems<T: Decodable>(decodableType: T.Type,
-                                          pageSize: Int = 20,
-                                          paginated: Bool,
-                                          newSearch: Bool,
-                                          query: String?,
-                                          category: String?,
-                                          success: @escaping SearchItemsOperation.searchItemsSuccess,
-                                          failure: @escaping SearchItemsOperation.searchItemsFailure) {
+    public static func searchItems<T: Decodable>(decodableType: T.Type,
+                                                 pageSize: Int = 20,
+                                                 paginated: Bool,
+                                                 newSearch: Bool,
+                                                 query: String?,
+                                                 category: String?,
+                                                 success: @escaping NetworkRequestSuccess,
+                                                 failure: @escaping NetworkRequestFailure) {
         guard let location = Self.location, Self.session != nil else {
             assertionFailure("You need to set up the session before making http requests")
             return
@@ -49,10 +49,10 @@ extension NetworkManager {
 
     }
 
-    static func getItemDetails<T: Decodable>(decodableType: T.Type,
-                                             itemId: String?,
-                                             success: @escaping SearchItemsOperation.searchItemsSuccess,
-                                             failure: @escaping SearchItemsOperation.searchItemsFailure) {
+    public static func getItemDetails<T: Decodable>(decodableType: T.Type,
+                                                    itemId: String?,
+                                                    success: @escaping NetworkRequestSuccess,
+                                                    failure: @escaping NetworkRequestFailure) {
         guard let location = Self.location, Self.session != nil, let itemId = itemId else {
             assertionFailure("You need to set up the session before making http requests")
             return

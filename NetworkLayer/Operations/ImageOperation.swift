@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-public class ImageOperation {
-    public typealias requestImageSuccess = (UIImage) -> Void
-    public typealias requestImageFailure = (Error?) -> Void
+class ImageOperation {
+    typealias requestImageSuccess = (UIImage) -> Void
+    typealias requestImageFailure = (Error?) -> Void
 
-    public static func requestImage(urlRequest: URLRequest,
-                                    success: @escaping requestImageSuccess,
-                                    failure: @escaping requestImageFailure) {
+    static func requestImage(urlRequest: URLRequest,
+                             success: @escaping requestImageSuccess,
+                             failure: @escaping requestImageFailure) {
         TaskManager.makeHttpGetRequestForImage(urlRequest: urlRequest, success: { image in
             success(image)
         }, failure: { error in

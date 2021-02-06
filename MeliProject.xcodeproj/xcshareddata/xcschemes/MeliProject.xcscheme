@@ -38,6 +38,26 @@
                ReferencedContainer = "container:MeliProject.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FE301EEA25B10EA200A1C0E0"
+               BuildableName = "NetworkTests.xctest"
+               BlueprintName = "NetworkTests"
+               ReferencedContainer = "container:MeliProject.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FEF5F54F25CF3DDF002F55AA"
+               BuildableName = "NetworkLayerTests.xctest"
+               BlueprintName = "NetworkLayerTests"
+               ReferencedContainer = "container:MeliProject.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import class NetworkLayer.NetworkManager
 
 public class ProductDetailsCoordinator: GenericCoordinatorBase, GenericCoordinator {
 
