@@ -80,8 +80,18 @@ extension ItemDetailsAttributesCell: UICollectionViewDataSource, UICollectionVie
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewHeight: CGFloat = 376
         let numberOfCellsToDisplay: CGFloat = 3
-        let collectionViewVerticalPadding: CGFloat = 16
-        let cellheight = (collectionViewHeight - collectionViewVerticalPadding) / numberOfCellsToDisplay
-        return CGSize(width: (contentView.bounds.size.width * 0.6), height: cellheight)
+        let spaceBetweenCells: CGFloat = 30
+        let cellheight = (collectionViewHeight - spaceBetweenCells) / numberOfCellsToDisplay
+        let horizontalPadding: CGFloat = 32
+        var cellwidth = contentView.bounds.size.width
+        switch UIDevice.current.orientation {
+        case .landscapeLeft, .landscapeRight:
+            cellwidth = (cellwidth * 0.6) - horizontalPadding
+        case .portrait, .portraitUpsideDown:
+            cellwidth -= horizontalPadding
+        default:
+            cellwidth -= horizontalPadding
+        }
+        return CGSize(width: cellwidth, height: cellheight)
     }
 }
